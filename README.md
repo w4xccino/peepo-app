@@ -2,10 +2,10 @@
 
 **Peepo App** is a web aplication builded with those technologies that we learned to made this project: 🚀
 
-- React Js <img style="max-width: 20px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png"/>
-- Node Js <img style="max-width: 20px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png"/>
-- Express Js <img style="max-width: 20px" src="https://buttercms.com/static/images/tech_banners/ExpressJS.png"/>
-- MySQL <img style="max-width: 20px" src="https://blog.artegrafico.net/wp-content/uploads/2019/10/mysql-logo.png"/>
+- React Js <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png" width="20px"/>
+- Node Js <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png" width="20px"/>
+- Express Js <img 20px" src="https://buttercms.com/static/images/tech_banners/ExpressJS.png" width="20px"/>
+- MySQL <img src="https://blog.artegrafico.net/wp-content/uploads/2019/10/mysql-logo.png" width="20px"/>
 
 (Now it is still in development)
 
@@ -15,7 +15,7 @@ The app is responsive (that means it will work in any device) but it has some ad
 
 We needed Google ArCore to build 3d models.
 
-This App was made by (Llamas Dev Team <img style="max-width: 20px" src="https://i.pinimg.com/originals/6c/41/d2/6c41d23446084437c4d1060c7f16f61c.jpg" />):
+This App was made by (Llamas Dev Team <img src="https://i.pinimg.com/originals/6c/41/d2/6c41d23446084437c4d1060c7f16f61c.jpg" width="20px" />):
 
 - [Romario Quispe](https://github.com/romariou76) (backend developer)
 - [Rony Caceres](https://github.com/ronyWil) (BD developer)
