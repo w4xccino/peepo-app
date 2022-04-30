@@ -1,7 +1,18 @@
 import React from "react";
 import "../styles/Login.css";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function Login() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const action = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
@@ -14,39 +25,52 @@ function Login() {
             quidem quo voluptatum iusto enim ullam!
           </p>
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="text"
-                placeholder="email"
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Constraseña</span>
-              </label>
-              <input
-                type="text"
-                placeholder="password"
-                className="input input-bordered"
-              />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  ¿Olvidaste tu contraseña?
-                </a>
-              </label>
-            </div>
-            <div className="form-control mt-2">
-              <button className="btn btn-primary my-1">Ingresar</button>
-              <button className="btn btn-secundary my-1">Registrarse</button>
+        <form onSubmit={handleSubmit(action)}>
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  required
+                  type="email"
+                  {...register("email")}
+                  placeholder="email"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Contraseña</span>
+                </label>
+                <input
+                  required
+                  type="password"
+                  {...register("password")}
+                  placeholder="password"
+                  className="input input-bordered"
+                />
+                <label className="label">
+                  <a href="#" className="label-text-alt link link-hover">
+                    ¿Olvidaste tu contraseña?
+                  </a>
+                </label>
+              </div>
+              <div className="form-control mt-2">
+                <button
+                  onSubmit={handleSubmit}
+                  className="btn btn-primary my-1"
+                >
+                  Ingresar
+                </button>
+                <Link to="/register" className="btn btn-secundary my-1">
+                  Registrarse
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
