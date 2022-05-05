@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "../styles/Login.css";
+import axios from "axios";
 
 function Register() {
   const {
@@ -9,7 +10,14 @@ function Register() {
     formState: { errors },
   } = useForm();
 
-  const action = (data) => console.log(data);
+  const url = "http://localhost:4000/api/register";
+  const action = (body) => {
+    axios.post(url, body).then((res) => {
+      console.log(res);
+      console.log("los datos son: ", res.data);
+      console.log(body);
+    });
+  };
 
   return (
     <div className="hero min-h-screen bg-base-200">

@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Login.css";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 function Login() {
   const {
@@ -9,8 +10,30 @@ function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const action = (data) => {
-    console.log(data);
+  const url = "http://localhost:4000/api/login";
+  // const action = (data) => {
+  //   fetch(url, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  const action = (body) => {
+    let test = { email: "sasari@paeso.com", password: "Yepez" };
+    axios.post(url, body).then((res) => {
+      console.log(res);
+      console.log("los datos son: ", res.data);
+      console.log(body);
+    });
   };
 
   return (
