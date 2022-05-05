@@ -31,7 +31,7 @@ function Register() {
                   <span className="label-text">Nombre</span>
                 </label>
                 <input
-                  {...register("nombre")}
+                  {...register("name")}
                   type="text"
                   placeholder="nombre"
                   className="input input-bordered"

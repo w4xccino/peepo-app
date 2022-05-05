@@ -11,22 +11,6 @@ function Login() {
     formState: { errors },
   } = useForm();
   const url = "http://localhost:4000/api/login";
-  // const action = (data) => {
-  //   fetch(url, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(data),
-  //   })
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   const action = (body) => {
     let test = { email: "sasari@paeso.com", password: "Yepez" };
     axios.post(url, body).then((res) => {
