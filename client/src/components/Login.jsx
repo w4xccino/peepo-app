@@ -14,9 +14,7 @@ function Login() {
   const action = (body) => {
     let test = { email: "sasari@paeso.com", password: "Yepez" };
     axios.post(url, body).then((res) => {
-      console.log(res);
-      console.log("los datos son: ", res.data);
-      console.log(body);
+      console.log("Respuesta: ", res.data);
     });
   };
 
