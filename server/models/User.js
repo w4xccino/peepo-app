@@ -19,26 +19,21 @@ const user = sequelize.define("User", {
   phone: { type: Sequelize.STRING, allowNull: true },
 });
 
-user
-  .sync()
-  .then(() => {
-    //working with our updated table
-    const USER = user.build({
-      name: "Diego",
-      last_name: "Toledo",
-      email: "epcbox123@gmail.com",
-      password: "12345678",
-      address: "Arequipa",
-      phone: "970124202",
-    });
-    return USER.save();
-  })
-  .then(() => {
-    console.log("User Added to database");
-  })
-  .catch((err) => {
-    console.log("Error syncing the table and model", err);
-  });
+// user
+//   .sync()
+//   .then(() => {
+//     return user.findAll({
+//       where: { email: "epcbox123@gmail.com", password: "12345678" },
+//     });
+//   })
+//   .then((data) => {
+//     data.forEach((element) => {
+//       console.log(element.length);
+//     });
+//   })
+//   .catch((err) => {
+//     console.log("Error syncing the table and model", err);
+//   });
 
 // Exporting User, using this constant
 // we can perform CRUD operations on

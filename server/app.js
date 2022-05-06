@@ -23,9 +23,22 @@ sequelize
 app.post("/api/login", (req, res) => {
   let { email, password } = req.body;
   let values = [email, password];
-  if (values[0] == "epcbox123@gmail.com" || values[1] == "12345678") {
-    res.send("hala pa eso?");
-  }
+
+  user.sync().then(() => {
+    user
+      .findAll({ where: { email: values[0], password: values[1] } })
+      .then((data) => {
+        if (Object.keys(data).length != 0) {
+          res.send(`oh yeah, usuario logeado con ${values[0]} y ${values[1]}`);
+          console.log(data);
+        } else {
+          res.send("Usuario no encontrado");
+        }
+      })
+      .catch((err) => {
+        res.send("ningun usuario encontrado", err);
+      });
+  });
 });
 
 //register api
