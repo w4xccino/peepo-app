@@ -1,5 +1,5 @@
 const sequelize = require("./utils/database");
-const user = require("./models/user");
+const user = require("./models/User");
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2");
@@ -23,8 +23,9 @@ sequelize
 app.post("/api/login", (req, res) => {
   let { email, password } = req.body;
   let values = [email, password];
-  console.log(values);
-  res.send("pa eso?");
+  if (values[0] == "epcbox123@gmail.com" || values[1] == "12345678") {
+    res.send("hala pa eso?");
+  }
 });
 
 //register api
