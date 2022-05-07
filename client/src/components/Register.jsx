@@ -43,7 +43,7 @@ function Register() {
                   <span className="label-text">Apellido</span>
                 </label>
                 <input
-                  {...register("apellido")}
+                  {...register("lastname")}
                   type="text"
                   placeholder="apellido"
                   className="input input-bordered"
@@ -104,7 +104,7 @@ function Register() {
                   <span className="label-text">Dirección</span>
                 </label>
                 <input
-                  {...register("direccion")}
+                  {...register("address")}
                   type="text"
                   placeholder="dirección"
                   className="input input-bordered"
@@ -117,7 +117,7 @@ function Register() {
                   <span className="label-text">Teléfono</span>
                 </label>
                 <input
-                  {...register("telefono")}
+                  {...register("phone")}
                   type="tel"
                   placeholder="telefono"
                   className="input input-bordered"

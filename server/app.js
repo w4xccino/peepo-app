@@ -2,8 +2,6 @@ const sequelize = require("./utils/database");
 const user = require("./models/User");
 const express = require("express");
 const cors = require("cors");
-const mysql = require("mysql2");
-require("dotenv").config();
 
 const app = express();
 app.use(express.json()); //middleware
@@ -43,11 +41,31 @@ app.post("/api/login", (req, res) => {
 
 //register api
 app.post("/api/register", (req, res) => {
-  let { email, password } = req.body;
-  let values = [email, password];
-  console.log(values);
-});
+  let { name, lastname, email, password, address, phone } = req.body;
+  let values = [name, lastname, email, password, address, phone];
 
+  user
+    .sync()
+    .then(() => {
+      const USER = user.build({
+        name: values[0],
+        last_name: values[1],
+        email: values[2],
+        password: values[3],
+        address: values[4],
+        phone: values[5],
+      });
+      USER.save();
+    })
+    .then((data) => {
+      console.log("Usuario agregado a la base de datos");
+      res.send("Usuario agregado a la base de datos");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(err);
+    });
+});
 app.listen(4000, () =>
   console.log("Servidor iniciado en http://localhost:4000")
 );
