@@ -5,16 +5,19 @@ import axios from "axios";
 
 
 function Register() {
-  const {register, handleSubmit, watch, formState: { errors }} = useForm({});
-    const password = useRef({});
-    password.current = watch("password", "");
-//API del server
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({});
+  const password = useRef({});
+  password.current = watch("password", "");
+  //API del server
   const url = "http://localhost:4000/api/register";
   const action = (body) => {
     axios.post(url, body).then((res) => {
-      console.log(res);
-      console.log("los datos son: ", res.data);
-      console.log(body);
+      console.log("Respuesta: ", res.data);
     });
   };
 
@@ -41,7 +44,7 @@ function Register() {
                   <span className="label-text">Apellido</span>
                 </label>
                 <input
-                  {...register("apellido")}
+                  {...register("lastname")}
                   type="text"
                   placeholder="apellido"
                   className="input input-bordered"
@@ -64,13 +67,13 @@ function Register() {
                   <span className="label-text">Contraseña</span>
                 </label>
                 <input
-                  {...register("password", ({
+                  {...register("password", {
                     required: "Debes especificar una contraseña",
                     minLength: {
                       value: 4,
-                      message: "La contraseña debe tener al menos 4 caracteres"
-                    }
-                  }))}
+                      message: "La contraseña debe tener al menos 4 caracteres",
+                    },
+                  })}
                   name="password"
                   type="password"
                   placeholder="password"
@@ -84,10 +87,11 @@ function Register() {
                   <span className="label-text">Confirmar contraseña</span>
                 </label>
                 <input
-                  {...register("password2", ({
-                      validate: value =>
-                      value === password.current || "las contraseñas no coinciden"
-                  }))}
+                  {...register("password2", {
+                    validate: (value) =>
+                      value === password.current ||
+                      "las contraseñas no coinciden",
+                  })}
                   name="password2"
                   type="password"
                   placeholder="confirmar contraseña"
@@ -101,7 +105,7 @@ function Register() {
                   <span className="label-text">Dirección</span>
                 </label>
                 <input
-                  {...register("direccion")}
+                  {...register("address")}
                   type="text"
                   placeholder="dirección"
                   className="input input-bordered"
@@ -114,7 +118,7 @@ function Register() {
                   <span className="label-text">Teléfono</span>
                 </label>
                 <input
-                  {...register("telefono")}
+                  {...register("phone")}
                   type="tel"
                   placeholder="telefono"
                   className="input input-bordered"
@@ -122,7 +126,7 @@ function Register() {
                 />
               </div>
               <div className="form-control mt-2">
-              <button className="mt-2 btn btn-primary">Registrarse</button>
+                <button className="mt-2 btn btn-primary">Registrarse</button>
               </div>
             </form>
             

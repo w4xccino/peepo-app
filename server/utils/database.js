@@ -1,21 +1,17 @@
-// Include Sequelize module
-const Sequelize = require('sequelize')
-  
-// Creating new Object of Sequelize
+const { Sequelize } = require("sequelize");
+require("dotenv").config();
+
 const sequelize = new Sequelize(
-    'rolando',
-    'root',
-    'qFFgEJc2ebNBb0cG', {
-  
-        
-        dialect: 'mysql',
-  
-                   
-        host: '34.176.188.119'
-    }
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
+  {
+    dialect: "mysql",
+    host: process.env.DB_HOST,
+    define: {
+      freezeTableName: true,
+    },
+  }
 );
-  
-// Exporting the sequelize object. 
-// We can use it in another file
-// for creating models
-module.exports = sequelize
+
+module.exports = sequelize;
