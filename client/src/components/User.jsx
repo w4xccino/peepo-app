@@ -1,32 +1,35 @@
 import React from 'react'
+import Footer from './templates/footer';
+import Navbar from './templates/Navbar.jsx';
 
 function User(props) {
     return(
+<body>
+<Navbar />
+<div className="w-full min-h-screen bg-neutral p-6">
 
-<div class="w-full min-h-screen bg-neutral p-6">
-
-        <div class="avatar flex justify-center">
-            <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+        <div className="avatar flex justify-center">
+            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 <img src={require('../imagenes/avatar.png')} alt="" />
             </div>
         </div>
 
-<h2 class="text-yellow-500">Romario</h2>
+<h2 className="text-yellow-500">Romario</h2>
 <p>roma_gd@gmail.com</p>
 
 <br></br>
 <br></br>
 
-<h1 class="text-white">Información de usuario</h1>
-<h1 class="text-white">Email:</h1>
-<h1 class="text-white">Dirección:</h1>
-<h1 class="text-white">Telefono:</h1>
+<h1 className="text-white">Información de usuario</h1>
+<h1 className="text-white">Email:</h1>
+<h1 className="text-white">Dirección:</h1>
+<h1 className="text-white">Telefono:</h1>
 
 <br></br>
 <br></br>
 
-    <h1 class="text-yellow-500">Historial de Pedidos</h1>
-    <table class="table-fixed ">
+    <h1 className="text-yellow-500">Historial de Pedidos</h1>
+    <table className="table-fixed ">
         <thead className=''>
           <tr>
             <th>Nombre</th>
@@ -52,11 +55,9 @@ function User(props) {
           </tr>
         </tbody>
     </table>
-
     </div>
-
-
-
+<Footer />
+</body>
     )
 }
 
