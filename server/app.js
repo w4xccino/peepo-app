@@ -1,4 +1,4 @@
-const sequelize = require("./utils/database");
+/*const sequelize = require("./utils/database");
 const user = require("./models/User");
 const express = require("express");
 const cors = require("cors");
@@ -69,7 +69,7 @@ app.post("/api/register", (req, res) => {
 app.listen(4000, () =>
   console.log("Servidor iniciado en http://localhost:4000")
 );
-
+*/
 /*Para crear el modelo, podemos utilizar una de las siguientes formas:
 Método sync(): Este método creará un modelo si el modelo no existe, sin embargo, si ya existe, no lo sobrescribirá.
 sync ({force: true}) Método: Este método creará un modelo si el modelo no existe, sin embargo, si ya existe, lo sobrescribirá.*/
