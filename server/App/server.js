@@ -1,13 +1,17 @@
-const express = require('express');
-const app = express()
-const port = 3000
+const express = require("express");
+const app = express();
+const port = 4000;
+const cors = require("cors");
+
 //importar la conexion
-const { connection } = require('./dataBase/conexionData');
-const { usuario } = require('./dataBase/conexionData');
+const { connection } = require("./dataBase/conexionData");
+const { usuario } = require("./dataBase/conexionData");
+
+app.use(express.json()); //middleware
+app.use(cors()); //important
 
 //rutas
-app.use(require('../App/route'));
-
+app.use(require("../App/route"));
 
 //login api
 app.post("/api/login", (req, res) => {
@@ -16,7 +20,7 @@ app.post("/api/login", (req, res) => {
 
   usuario.sync().then(() => {
     usuario
-      .findAll({ where: { email: values[0], contracena: values[1] } })
+      .findAll({ where: { email: values[0], contrasena: values[1] } })
       .then((data) => {
         if (Object.keys(data).length != 0) {
           res.send(`oh yeah, usuario logeado con ${values[0]} y ${values[1]}`);
@@ -36,14 +40,14 @@ app.post("/api/register", (req, res) => {
   let { name, lastname, email, password, address, phone } = req.body;
   let values = [name, lastname, email, password, address, phone];
 
-  user
+  usuario
     .sync()
     .then(() => {
-      const USER = user.build({
+      const USER = usuario.build({
         nombre: values[0],
         apellido: values[1],
         email: values[2],
-        contracena: values[3],
+        contrasena: values[3],
         direccion: values[4],
         telefono: values[5],
       });
@@ -59,10 +63,9 @@ app.post("/api/register", (req, res) => {
     });
 });
 
-
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`); 
-  connection.sync({force:false}).then(()=>{
-      console.log("Conexion exitosa a la base de datos");
+  console.log(`Example app listening on port ${port}`);
+  connection.sync({ force: false }).then(() => {
+    console.log("Conexion exitosa a la base de datos");
   });
 });
