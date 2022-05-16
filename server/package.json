@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Trying to make the server from scratch",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon ./App/server.js"
   },
   "keywords": [],
   "author": "w4xccino",
@@ -15,6 +15,8 @@
     "dotenv": "^16.0.0",
     "express": "^4.18.1",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.19.0"
+    "nodemon": "^2.0.16",
+    "sequelize": "^6.19.0",
+    "sequelize-cli": "^6.4.1"
   }
 }

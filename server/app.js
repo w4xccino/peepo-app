@@ -66,6 +66,7 @@ app.post("/api/register", (req, res) => {
       res.send(err);
     });
 });
+
 app.listen(4000, () =>
   console.log("Servidor iniciado en http://localhost:4000")
 );
