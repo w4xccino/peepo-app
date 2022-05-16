@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class Fabricante extends Model {
 
     static associate(models) {      
-      //this.hasOne(models.usuario);
+      this.hasMany(models.producto);
     }
   }
   Fabricante.init({
@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'fabricante',
+    tableName:'fabricante'
   });
   return Fabricante;
 };
