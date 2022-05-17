@@ -23,7 +23,7 @@ app.post("/api/login", (req, res) => {
       .findAll({ where: { email: values[0], contrasena: values[1] } })
       .then((data) => {
         if (Object.keys(data).length != 0) {
-          res.send(`oh yeah, usuario logeado con ${values[0]} y ${values[1]}`);
+          res.send("true");
           console.log(data);
         } else {
           res.send("Usuario no encontrado");

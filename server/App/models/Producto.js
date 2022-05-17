@@ -1,14 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Producto extends Model {
-    static associate(models) {
-      this.belongsTo(models.producto);
-      this.belongsTo(models.producto); // es necesaria tanta repeticion?
-      this.belongsTo(models.producto);
-      this.belongsTo(models.producto);
-    }
-  }
+  class Producto extends Model {}
   Producto.init(
     {
       nombre_material: DataTypes.STRING,
