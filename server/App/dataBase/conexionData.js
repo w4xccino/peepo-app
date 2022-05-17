@@ -10,9 +10,17 @@ db.fabricante=require('../models/Fabricante')(db.connection,DataTypes);
 db.material=require('../models/Material')(db.connection,DataTypes);
 db.categoria=require('../models/Categoria')(db.connection,DataTypes);
 db.tipoProducto=require('../models/TipoProducto')(db.connection,DataTypes);
+db.producto=require('../models/Producto')(db.connection,DataTypes);
+db.usuario=require('../models/Usuario')(db.connection,DataTypes);
+db.factura=require('../models/Factura')(db.connection,DataTypes);
 
-//associar los modelos 
 
-//db.ciudad.associate(db);
+//associar los modelos
+db.tipoProducto.associate(db);
+db.fabricante.associate(db);
+db.material.associate(db);
+db.categoria.associate(db);
+db.usuario.associate(db);
+
 module.exports=db;
 

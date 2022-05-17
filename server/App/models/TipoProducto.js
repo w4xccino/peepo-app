@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class TipoProducto extends Model {
 
     static associate(models) {      
-      
+      this.hasMany(models.producto)
     }
   }
   TipoProducto.init({
