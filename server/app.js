@@ -14,7 +14,7 @@ sequelize
     console.log("Connection to Database Successful!");
   })
   .catch((err) => {
-    console.log("Error connecting to database");
+    console.log("Error connecting to database", err);
   });
 //login api
 app.post("/api/login", (req, res) => {

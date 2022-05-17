@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
   class Producto extends Model {}
   Producto.init(
     {
-      nombre_material: DataTypes.STRING,
       modelo: DataTypes.STRING,
       descripcion: DataTypes.STRING,
       imagen: DataTypes.TEXT,

@@ -10,6 +10,15 @@ const { usuario } = require("./dataBase/conexionData");
 app.use(express.json()); //middleware
 app.use(cors()); //important
 
+connection
+  .authenticate()
+  .then(() => {
+    console.log("Connection to Database Successful!");
+  })
+  .catch((err) => {
+    console.log("Error connecting to database", err);
+  });
+
 //rutas
 app.use(require("../App/route"));
 
@@ -63,9 +72,12 @@ app.post("/api/register", (req, res) => {
     });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-  connection.sync({ force: false }).then(() => {
-    console.log("Conexion exitosa a la base de datos");
-  });
-});
+app.listen(port, () =>
+  console.log("Servidor iniciado en http://localhost:4000")
+);
+
+/*Para crear el modelo, podemos utilizar una de las siguientes formas:
+Método sync(): Este método creará un modelo si el modelo no existe, sin embargo, si ya existe, no lo sobrescribirá.
+sync ({force: true}) Método: Este método creará un modelo si el modelo no existe, sin embargo, si ya existe, lo sobrescribirá.*/
+
+// connection.sync({ force: true });
