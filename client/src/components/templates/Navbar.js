@@ -2,8 +2,8 @@ import React from 'react'
 
 function Navbar () {
   return (
-    <nav>
-      <div className="navbar bg-base-100">
+    <nav >
+      <div className="navbar flex-none gap-2 bg-base-100">
         <div class="navbar-start">
           <div className="dropdown">
             <label tabindex="0" className="btn btn-ghost btn-circle">
@@ -15,18 +15,18 @@ function Navbar () {
               <li><a><svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>Categorias</a></li>
             </ul>
           </div>
+          <div>
+
+          </div>
         </div>
         <div className="navbar-center">
-          <a className="normal-case text-4xl">Peepo-App</a>
+          <button className="btn btn-ghost btn-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          </button>
+          <input type="text" placeholder="Search..." className="lg: input input-bordered ml-6 bg-transparent"></input>
         </div>
         <div className="navbar-end">
-          <div className="form-control bg-200 p-0">
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-          </div>
-          <div className="form-control bg-200 p-1">
-            <input type="text" placeholder="Search..." className="ml-6 bg-transparent"></input>
-          </div>
-          <a href="https://www.google.com">
+          <a href="/login">
             <button className="btn btn-ghost btn-circle">
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
             </button>
