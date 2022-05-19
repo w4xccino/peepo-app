@@ -5,7 +5,7 @@ const cors = require("cors");
 
 //importar la conexion
 const { connection } = require("./dataBase/conexionData");
-const { usuario } = require("./dataBase/conexionData");
+const { usuario, producto } = require("./dataBase/conexionData");
 
 app.use(express.json()); //middleware
 app.use(cors()); //important
@@ -20,7 +20,7 @@ connection
   });
 
 //rutas
-app.use(require("../App/route"));
+// app.use(require("../App/route"));
 
 //login api
 app.post("/api/login", (req, res) => {
@@ -70,6 +70,21 @@ app.post("/api/register", (req, res) => {
       console.log(err);
       res.send(err);
     });
+});
+
+//producto API
+app.get("/api/producto", (req, res) => {
+  producto.sync().then(() => {
+    producto
+      .findAll()
+      .then((data) => {
+        res.send(data);
+        console.log(data);
+      })
+      .catch((err) => {
+        res.send(err);
+      });
+  });
 });
 
 app.listen(port, () =>
