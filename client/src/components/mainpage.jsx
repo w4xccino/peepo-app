@@ -26,7 +26,7 @@ function Mainpage(){
           </div>
           <div className="flex justify-center">
             <div className="badge badge-info">Tecnologia</div>
-            <div className="badge badge-success">Electrodomesticos</div>
+            <div className="badge badge-success">Electrodomesticoss</div>
             <div className="badge badge-warning">Carpinteria</div>
             <div className="badge badge-error">Belleza</div>
           </div>
