@@ -5,11 +5,13 @@ function CardProduct(props) {
   return (
     <div className="card card-compact w-96 bg-white shadow-2xl m-2">
       <figure className="h-64 w-auto">
-        <img
-          src={require(`../../imagenes/${props.imagen}`)}
-          alt="Shoes"
-          className="h-64 w-auto"
-        />
+        <a href={props.link}>
+          <img
+            src={require(`../../imagenes/${props.imagen}`)}
+            alt="Shoes"
+            className="h-64 w-auto"
+          />
+        </a>
       </figure>
       {/* Iso de plantillas literales para prop.imagen*/}
       <div className="card-body">
