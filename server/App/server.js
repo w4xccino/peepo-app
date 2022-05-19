@@ -41,6 +41,7 @@ app.post("/api/login", (req, res) => {
       .catch((err) => {
         res.send("ningun usuario encontrado", err);
       });
+      
   });
 });
 
@@ -71,6 +72,22 @@ app.post("/api/register", (req, res) => {
       res.send(err);
     });
 });
+
+//API DE LISTADO_DATOS_USUARIO_LOGUEADOO
+app.get('/api/user', (req, res) =>{
+  usuario.sync().then(() => {
+    usuario
+    .findAll()
+    .then((data) => {
+        res.status(200).send(data)
+    }).catch(function(err){
+        res.status(500).send(err)
+    })
+})
+})
+
+//API DE LISTADO DE PRODUCTOS
+
 
 app.listen(port, () =>
   console.log("Servidor iniciado en http://localhost:4000")

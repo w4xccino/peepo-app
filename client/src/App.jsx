@@ -6,6 +6,7 @@ import Peepoapp from "./components/Peepoapp";
 import Producto from "./components/Producto";
 import { ProtectedRoutes } from "./ProtectedRoutes";
 import User from "./components/User";
+import Mainpage from "./components/mainpage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/" element={<Peepoapp />} />
           <Route exact path="/user" element={<User />} />
           <Route exact path="/producto" element={<Producto />} />
+          <Route exact path="/mainpage" element={<Mainpage />} />
         </Route>
       </Routes>
     </div>

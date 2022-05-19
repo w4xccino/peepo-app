@@ -18,5 +18,4 @@ function CardProduct(props){
       </div>
     )
 }
-
-export default CardProduct;
+export default CardProduct; 
