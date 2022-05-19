@@ -17,6 +17,8 @@ function App() {
           <Route exact path="/productos" element={<Peepoapp />} />
           <Route exact path="/productos/:product_id" element={<Producto />} />
           <Route exact path="/user" element={<User />} />
+          <Route exact path="/" element={<Mainpage />} />
+
         </Route>
       </Routes>
     </div>
