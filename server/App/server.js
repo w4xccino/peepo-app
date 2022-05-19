@@ -72,6 +72,19 @@ app.post("/api/register", (req, res) => {
     });
 });
 
+//API DE LISTADO_DATOS_USUARIO_LOGUEADOO
+app.get('/api/user', (req, res) =>{
+  usuario.sync().then(() => {
+    usuario
+    .findAll()
+    .then((data) => {
+        res.status(200).send(data)
+    }).catch(function(err){
+        res.status(500).send(err)
+    })
+})
+})
+
 //producto API
 app.get("/api/productos", (req, res) => {
   producto.sync().then(() => {
