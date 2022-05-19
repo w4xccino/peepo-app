@@ -7,8 +7,8 @@ module.exports = (sequelize, DataTypes) => {
       modelo: DataTypes.STRING,
       descripcion: DataTypes.STRING,
       imagen: DataTypes.TEXT,
-      precio: DataTypes.DECIMAL,
-      stock: DataTypes.DECIMAL,
+      precio: DataTypes.FLOAT,
+      stock: DataTypes.INTEGER,
     },
     {
       sequelize,
