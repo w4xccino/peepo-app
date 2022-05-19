@@ -13,10 +13,10 @@ function App() {
       <Routes>
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/register" element={<Register />} />
-        <Route element={<ProtectedRoutes />}>
+        <Route exact element={<ProtectedRoutes />}>
           <Route exact path="/productos" element={<Peepoapp />} />
+          <Route exact path="/productos/:product_id" element={<Producto />} />
           <Route exact path="/user" element={<User />} />
-          <Route exact path="/producto" element={<Producto />} />
         </Route>
       </Routes>
     </div>

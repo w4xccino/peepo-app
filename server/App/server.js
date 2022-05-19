@@ -73,13 +73,26 @@ app.post("/api/register", (req, res) => {
 });
 
 //producto API
-app.get("/api/producto", (req, res) => {
+app.get("/api/productos", (req, res) => {
   producto.sync().then(() => {
     producto
       .findAll()
       .then((data) => {
         res.send(data);
-        console.log(data);
+        // console.log(data);
+      })
+      .catch((err) => {
+        res.send(err);
+      });
+  });
+});
+
+app.get("/api/producto/:id", (req, res) => {
+  producto.sync().then(() => {
+    producto
+      .findAll({ where: { id: req.params.id } })
+      .then((data) => {
+        res.send(data);
       })
       .catch((err) => {
         res.send(err);
@@ -88,7 +101,7 @@ app.get("/api/producto", (req, res) => {
 });
 
 app.listen(port, () =>
-  console.log("Servidor iniciado en http://localhost:4000")
+  console.log("Servidor iniciado en http://localhost:" + port)
 );
 
 /*Para crear el modelo, podemos utilizar una de las siguientes formas:

@@ -17,7 +17,7 @@ function CardProduct(props) {
         <p>{props.producto}</p>
         <div className="card-actions justify-end">
           {/*Boton de redireccionamiento al producto individual / aun nose como hacer esto  para cada productoxd*/}
-          <Link to="/Producto" className="btn btn-primary">
+          <Link to={props.link} className="btn btn-primary">
             Comprar
           </Link>
         </div>

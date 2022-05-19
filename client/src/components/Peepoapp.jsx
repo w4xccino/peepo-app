@@ -7,7 +7,7 @@ import Navbar from "./templates/Navbar.jsx";
 function Peepoapp() {
   const [producto, setProduct] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/api/producto")
+    fetch("http://localhost:4000/api/productos")
       .then((response) => response.json())
       .then((json) => setProduct(json));
   }, []);
@@ -33,6 +33,7 @@ function Peepoapp() {
                   producto={item.descripcion}
                   /* imagen="polo.jpg" */
                   imagen={item.imagen}
+                  link={`/productos/${item.id}`}
                 />
               </div>
             );
