@@ -29,7 +29,7 @@ function User(props) {
   // },[])
 
   return (
-    <body>
+    <div>
       <Navbar />
 
       <div className="w-full min-h-screen bg-base-100 p-6 ">
@@ -114,7 +114,7 @@ function User(props) {
 
       {/*Footer*/}
       <Footer />
-    </body>
+    </div>
   );
 }
 export default User;
