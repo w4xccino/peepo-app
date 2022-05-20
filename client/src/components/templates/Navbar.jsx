@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-function Navbar(props) {
+
+function Navbar() {
   const navigate = useNavigate();
   const signOut = () => {
     navigate("/login");
@@ -10,7 +11,7 @@ function Navbar(props) {
   return (
     <div>
       <nav>
-        <div className="navbar bg-base-100">
+        <div className="navbar flex-none gap-2 bg-base-100">
           <div className="navbar-start">
             <div className="dropdown">
               <label tabIndex="0" className="btn btn-ghost btn-circle">
@@ -33,7 +34,7 @@ function Navbar(props) {
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a href="/User">
+                  <a>
                     <svg
                       className="h-5 w-5"
                       viewBox="0 0 20 20"
@@ -45,11 +46,11 @@ function Navbar(props) {
                         clipRule="evenodd"
                       />
                     </svg>
-                    Nombre{" "}
+                    Perfil{" "}
                   </a>
                 </li>
                 <li>
-                  <a href="/">
+                  <a>
                     <svg
                       className="h-5 w-5"
                       fill="none"
@@ -67,7 +68,7 @@ function Navbar(props) {
                   </a>
                 </li>
                 <li>
-                  <a href="a">
+                  <a>
                     <svg
                       className="h-6 w-6"
                       fill="none"
@@ -86,23 +87,36 @@ function Navbar(props) {
                 </li>
               </ul>
             </div>
+            <div className="homt-button">
+              <a href="/productos">
+                <button className="btn btn-ghost btn-circle">
+                  {" "}
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                    ></path>
+                  </svg>
+                </button>
+              </a>
+            </div>
+          </div>
+          <div className="navbar-center">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="lg: input input-bordered ml-6 bg-transparent"
+            ></input>
           </div>
           <div className="navbar-end">
-            <button className="btn btn-ghost btn-circle">
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </button>
             <button onClick={signOut} className="btn btn-ghost btn-circle">
               <svg
                 className="h-6 w-6"
@@ -124,5 +138,4 @@ function Navbar(props) {
     </div>
   );
 }
-
 export default Navbar;

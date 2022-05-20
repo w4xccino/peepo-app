@@ -6,10 +6,9 @@ const febricanteController = require("./controller/febricanteController");
 const materialController = require("./controller/materialController");
 
 //home
-router.get("/pruevaRuta", (req, res) => res.json("Prueva de rutas"));
+// router.get("/pruevaRuta", (req, res) => res.json("Prueva de rutas"));
 
 // provando haciendo SELECT A LA TABLA
-router.get("/usuario", febricanteController.all);
-router.get("/usuario", materialController.all);
+// router.get("/fabricante", febricanteController.all);
 
 module.exports = router;
