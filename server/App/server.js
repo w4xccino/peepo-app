@@ -32,8 +32,14 @@ app.post("/api/login", (req, res) => {
       .findAll({ where: { email: values[0], contrasena: values[1] } })
       .then((data) => {
         if (Object.keys(data).length != 0) {
-          res.send("true");
-          console.log(data);
+          let list = [
+            "true",
+            data[0].telefono,
+            data[0].nombre,
+            data[0].email,
+            data[0].direccion,
+          ];
+          res.send(list);
         } else {
           res.send("Usuario no encontrado");
         }
@@ -73,17 +79,18 @@ app.post("/api/register", (req, res) => {
 });
 
 //API DE LISTADO_DATOS_USUARIO_LOGUEADOO
-app.get('/api/user', (req, res) =>{
+app.get("/api/user", (req, res) => {
   usuario.sync().then(() => {
     usuario
-    .findAll()
-    .then((data) => {
-        res.status(200).send(data)
-    }).catch(function(err){
-        res.status(500).send(err)
-    })
-})
-})
+      .findAll()
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch(function (err) {
+        res.status(500).send(err);
+      });
+  });
+});
 
 //producto API
 app.get("/api/productos", (req, res) => {
