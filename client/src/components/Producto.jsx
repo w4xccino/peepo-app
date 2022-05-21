@@ -38,9 +38,10 @@ function Producto() {
                 <p className="text-3xl text-purple-600">S/ {item.precio}0</p>
                 <h2 className="card-title text-neutral">Descripcion</h2>
                 <p className="text-neutral">
-                  Smartphone Huawei P30 pro de segundo uso. El equipo esta en
-                  perfecto estado 8/10, no tiene reparaciones. Me puede pagar
-                  por yape o tunki, solo interesados no sapos
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Pellentesque condimentum semper ornare. Quisque imperdiet
+                  tellus nibh. Nam tincidunt, elit ut tristique pretium, lacus
+                  felis sagittis nisl, vitae consequat dolor nunc vel massa.
                 </p>
                 <br />
                 <br />
