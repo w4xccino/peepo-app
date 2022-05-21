@@ -15,8 +15,8 @@ function CardProduct(props) {
       </figure>
       {/* Iso de plantillas literales para prop.imagen*/}
       <div className="card-body">
-        <h2 className="card-title text-yellow-500">S/{props.precio}0</h2>
-        <p className="text-base text-black">{props.producto}</p>
+        <h2 className="card-title text-yellow-500">S/{props.precio}</h2>
+        <p>{props.producto}</p>
         <div className="card-actions justify-end">
           {/*Boton de redireccionamiento al producto individual / aun nose como hacer esto  para cada productoxd*/}
           <Link to={props.link} className="btn btn-primary">
