@@ -11,13 +11,14 @@ app.use(express.json()); //middleware
 app.use(cors()); //important
 
 connection
-  .sync({force:true})
+  .authenticate()
   .then(() => {
     console.log("Connection to Database Successful!");
   })
   .catch((err) => {
     console.log("Error connecting to database", err);
   });
+//{force:true}
 
 //rutas
 // app.use(require("../App/route"));
