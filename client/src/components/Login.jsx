@@ -11,9 +11,13 @@ function Login() {
 
   const action = (body) => {
     axios.post(url, body).then((res) => {
-      console.log("Respuesta: ", res);
-      if (res.data === true) {
+      console.log("Respuesta: ", res.data);
+      if (res.data[0] === "true") {
         localStorage.setItem("auth", true);
+        localStorage.setItem("nombre", res.data[2]);
+        localStorage.setItem("telefono", res.data[1]);
+        localStorage.setItem("email", res.data[3]);
+        localStorage.setItem("direccion", res.data[4]);
         navigate("/");
       }
     });
