@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Fabricante.init({
-    nombre_marca: DataTypes.STRING
+    nombre_marca: DataTypes.STRING(45)
   }, {
     sequelize,
     modelName: 'fabricante',
