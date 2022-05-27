@@ -7,6 +7,7 @@ import Producto from "./components/Producto";
 import { ProtectedRoutes } from "./ProtectedRoutes";
 import User from "./components/User";
 import Mainpage from "./components/Mainpage";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/user" element={<User />} />
           <Route exact path="/" element={<Mainpage />} />
         </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
