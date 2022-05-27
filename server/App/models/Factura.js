@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   Factura.init(
     {
       fecha: DataTypes.DATE,
-      importe_total: DataTypes.DECIMAL(10,4),
+      importe_total: DataTypes.DECIMAL(10,2)
     },
     {
       sequelize,

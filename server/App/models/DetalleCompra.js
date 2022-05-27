@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull:false
     },
     cantidad: DataTypes.FLOAT,
-    precio:DataTypes.DECIMAL(10,4)
+    precio:DataTypes.DECIMAL(10,2)
   }, {
     sequelize,
     modelName: 'detalle_compra',
