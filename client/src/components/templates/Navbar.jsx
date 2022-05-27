@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 function Navbar() {
   const navigate = useNavigate();
+  const [data, setData] = useState([]);
+
   const signOut = () => {
     navigate("/login");
     localStorage.setItem("auth", false);
   };
+
+  useEffect(() => {
+    fetch("http://localhost:4000/api/productos").then((response) =>
+      response.json().then((json) => setData(json))
+    );
+  }, []);
 
   return (
     <div>
@@ -34,7 +44,7 @@ function Navbar() {
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a>
+                  <a href="/user">
                     <svg
                       className="h-5 w-5"
                       viewBox="0 0 20 20"
@@ -50,7 +60,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li>
-                  <a>
+                  <a href="/productos">
                     <svg
                       className="h-5 w-5"
                       fill="none"
@@ -109,13 +119,7 @@ function Navbar() {
               </a>
             </div>
           </div>
-          <div className="navbar-center">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="lg: input input-bordered ml-6 bg-transparent"
-            ></input>
-          </div>
+          <SearchBar placeholder="Buscar Productos" data={data} />
           <div className="navbar-end">
             <button onClick={signOut} className="btn btn-ghost btn-circle">
               <svg
