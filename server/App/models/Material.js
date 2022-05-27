@@ -8,11 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Material.init({
-    nombre_material: DataTypes.STRING
+    nombre_material: DataTypes.STRING(45)
   }, {
     sequelize,
     modelName: 'material',
-    tableName:"material"       
+    tableName:'material'       
   });
   return Material;
 };
