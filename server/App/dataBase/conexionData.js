@@ -21,7 +21,6 @@ db.fabricante.associate(db);
 db.material.associate(db);
 db.categoria.associate(db);
 db.usuario.associate(db);
-
 db.usuario.associate(db)
 db.factura.associate(db)
 
