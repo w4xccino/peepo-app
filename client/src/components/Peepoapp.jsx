@@ -13,18 +13,38 @@ function Peepoapp() {
       .then((json) => setProduct(json));
   }, []);
 
+  //Consumiendo la api de categoria
+  const [categoria, setCategoria] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:4000/api/categorias")
+      .then((response) => response.json())
+      .then((json) => setCategoria(json));
+  }, []);
+
   return (
     <div>
       {/* Barra de Navegacion dentro del body */}
       <Navbar />
       {/* Contenedor principal de la pagina */}
       <div className="w-full min-h-screen p-6">
-        <div className="flex justify-center">
-        {/*Retornamos los select de categorias, Estado y precio pi*/}
-        <Filtros list={["Categorias", "Ropa", "Electronica", "Telefonos", "Muebles", "Informatica", "Herramientas"]} />
-        <Filtros list={["Estado", "Nuevo", "Usado", "Reparado"]} />
-        <Filtros list={["Precio", "Menor", "descuentos", "Mayor"]} />
-        </div>
+            <div className="flex flex-wrap justify-center">
+            {/*Retornamos los select de categorias, Estado y precio pi*/}
+            {categoria.map((item, icx) => {
+            return (
+              <div key={icx}>
+                <Filtros 
+                primero={item.nombre_categoria}
+                segundo={item.nombre_categoria}
+              
+                />
+              </div>
+              
+              );
+            })}
+                <Filtros list={["Estado", "Nuevo", "Usado", "Reparado"]} />
+                <Filtros list={["Precio", "Menor", "descuentos", "Mayor"]} />
+            </div>
+
 
         <div className="flex flex-wrap justify-center ">
           {" "}
