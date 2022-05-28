@@ -7,8 +7,9 @@ import Producto from "./components/Producto";
 import { ProtectedRoutes } from "./ProtectedRoutes";
 import User from "./components/User";
 import Mainpage from "./components/Mainpage";
-import Payments from "./components/Payments";
 import PageNotFound from "./components/PageNotFound";
+import Payments from "./components/Payments";
+
 
 
 function App() {
