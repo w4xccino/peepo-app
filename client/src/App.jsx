@@ -7,6 +7,7 @@ import Producto from "./components/Producto";
 import { ProtectedRoutes } from "./ProtectedRoutes";
 import User from "./components/User";
 import Mainpage from "./components/Mainpage";
+import Payments from "./components/Payments";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/productos/:product_id" element={<Producto />} />
           <Route exact path="/user" element={<User />} />
           <Route exact path="/" element={<Mainpage />} />
+          <Route exact path="/payments" element={<Payments />} />
         </Route>
       </Routes>
     </div>
