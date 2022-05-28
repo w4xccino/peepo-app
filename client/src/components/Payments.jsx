@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "./templates/footer";
 import Navbar from "./templates/Navbar.jsx";
 
 function Payments(){
