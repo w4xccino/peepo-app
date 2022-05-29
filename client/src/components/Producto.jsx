@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import Footer from "./templates/footer";
 import { useParams } from "react-router-dom";
 import Navbar from "./templates/Navbar.jsx";
+import { Link } from "react-router-dom";
 
-function Producto() {
+function Producto(props) {
   const { product_id } = useParams();
   const [producto, setProducto] = useState([]);
   useEffect(() => {
@@ -48,9 +49,12 @@ function Producto() {
                   <button className="btn btn-secondary">
                     Visualizar en AR
                   </button>
+                    <Link to={`/payments/${product_id}`} className="btn btn-primary">
+                      Comprar
+                    </Link>
                   <button className="btn btn-primary">
-                    Agregar al carrito
-                  </button>
+                      Agregar al carrito
+                    </button>
                 </div>
               </div>
             </div>
