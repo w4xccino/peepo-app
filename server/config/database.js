@@ -9,9 +9,5 @@ module.exports = {
   define: {
     timestamps: false, //para evitar agregar el registo de modificacion
     underscored: true,
-  },
-
-  //configuarar las migraciones
-  migrationStorage: "sequelize",
-  migrationStorageTableName: "migrations",
+  }  
 };
