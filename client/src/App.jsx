@@ -9,6 +9,7 @@ import User from "./components/User";
 import Mainpage from "./components/Mainpage";
 import Payments from "./components/Payments";
 import PageNotFound from "./components/PageNotFound";
+import Categorias from "./components/Categorias";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/productos" element={<Peepoapp />} />
           <Route exact path="/productos/:product_id" element={<Producto />} />
           <Route exact path="/user" element={<User />} />
+          <Route exact path="/categorias" element={<Categorias />} />
           <Route exact path="/" element={<Mainpage />} />
           <Route exact path="/payments" element={<Payments />} />
         </Route>

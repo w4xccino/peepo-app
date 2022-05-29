@@ -78,7 +78,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li>
-                  <a>
+                  <a href="/categorias">
                     <svg
                       className="h-6 w-6"
                       fill="none"
