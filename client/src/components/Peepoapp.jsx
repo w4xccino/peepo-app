@@ -38,7 +38,7 @@ function Peepoapp() {
               <div key={idx}>
                 <CardProduct
                   precio={item.precio}
-                  producto={item.descripcion}
+                  producto={item.modelo}
                   imagen={item.imagen}
                   link={`/productos/${item.id}`}
                 />
