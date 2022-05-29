@@ -30,13 +30,7 @@ function Peepoapp() {
       <Navbar />
       {/* Contenedor principal de la pagina */}
       <div className="w-full min-h-screen p-6">
-        <div className="flex flex-wrap justify-center">
-          {/*Retornamos los select de categorias, Estado y precio pi*/}
-          <Filtros list={list} />
-        </div>
-
         <div className="flex flex-wrap justify-center ">
-          {" "}
           {/* Color del contenedor responsive */}
           {/* Integracion de los cards productos con sus props */}
           {producto.map((item, idx) => {
