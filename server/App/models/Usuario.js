@@ -8,17 +8,17 @@ module.exports = (sequelize, DataTypes) => {
   }
   Usuario.init(
     {
-      nombre: DataTypes.STRING,
-      apellido: DataTypes.STRING,
-      email: DataTypes.STRING,
-      contrasena: DataTypes.STRING,
-      direccion: DataTypes.STRING,
-      telefono: DataTypes.CHAR,
+      nombre: DataTypes.STRING(45),
+      apellido: DataTypes.STRING(45),
+      email: DataTypes.STRING(45),
+      contrasena: DataTypes.STRING(25),
+      direccion: DataTypes.STRING(80),
+      telefono: DataTypes.CHAR(20),
     },
     {
       sequelize,
-      modelName: "usuario",
-      tableName: "usuario",
+      modelName: 'usuario',
+      tableName: 'usuario'
     }
   );
   return Usuario;
