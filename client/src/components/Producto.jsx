@@ -42,7 +42,7 @@ function Producto(props) {
                 <p className="text-neutral">
                   Smartphone Huawei P30 pro de segundo uso. El equipo esta en
                   perfecto estado 8/10, no tiene reparaciones. Me puede pagar
-                  por yape o tunki, solo interesados no sapos
+                  por yape o tunki, solo interesados no sapos.
                 </p>
                 <br />
                 <br />
