@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/user" element={<User />} />
           <Route exact path="/categorias" element={<Categorias />} />
           <Route exact path="/" element={<Mainpage />} />
-          <Route exact path="/payments" element={<Payments />} />
+          <Route exact path="/payments/:product_id" element={<Payments />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
