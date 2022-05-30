@@ -1,20 +1,25 @@
 import React from "react";
 import "../styles/Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 function Login() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
   const url = "http://localhost:4000/api/login";
+
   const action = (body) => {
-    let test = { email: "sasari@paeso.com", password: "Yepez" };
     axios.post(url, body).then((res) => {
       console.log("Respuesta: ", res.data);
+      if (res.data[0] === "true") {
+        localStorage.setItem("auth", true);
+        localStorage.setItem("nombre", res.data[2]);
+        localStorage.setItem("telefono", res.data[1]);
+        localStorage.setItem("email", res.data[3]);
+        localStorage.setItem("direccion", res.data[4]);
+        navigate("/");
+      }
     });
   };
 

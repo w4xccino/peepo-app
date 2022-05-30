@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import "../styles/Login.css";
 import axios from "axios";
 
+
 function Register() {
   const {
     register,
@@ -128,6 +129,17 @@ function Register() {
                 <button className="mt-2 btn btn-primary">Registrarse</button>
               </div>
             </form>
+            
+            <p style={{textAlign: "center"}}>
+                ¿Ya tienes una cuenta?
+            </p>
+              
+              <div className="form-control">
+              <a style={{textAlign: "center" }} href="/login" className="label-text-alt link link-hover">
+                Iniciar Sesion
+              </a>
+              </div>
+
           </div>
         </section>
       </div>
