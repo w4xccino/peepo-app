@@ -8,12 +8,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   Categoria.init(
     {
-      nombre_categoria: DataTypes.STRING,
+      nombre_categoria: DataTypes.STRING(45),
     },
     {
       sequelize,
-      modelName: "categoria",
-      tableName: "categoria",
+      modelName: 'categoria',
+      tableName: 'categoria'
     }
   );
   return Categoria;

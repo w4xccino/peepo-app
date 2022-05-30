@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import RenderProductos from "../RenderProductos";
 
+function Filtros({ list }) {
+  const [selected, setSelected] = useState(1);
+  const ordenar = () => {
+    let selectBox = document.getElementById("form-select");
+    let selectedValue = selectBox.options[selectBox.selectedIndex].index;
+    selectedValue = selectedValue + 1;
+    setSelected(selectedValue);
+    console.log(selectedValue);
+  };
 
-function Filtros({ list }){
-    return(
-
-<div className="pa-eso">
-  <select className="select select-bordered select-sm w-28 max-w-xs m-1">
-    {list.map((element) => {
-    return <option>{element}</option>;
-    })}
-  </select>
-</div>
-    );
+  return (
+    <div>
+      <div className="containera">
+        <select
+          id="form-select"
+          onChange={ordenar}
+          className="select select-bordered select-sm w-32 max-w-xs m-2"
+        >
+          {list.map((element, idx) => {
+            return <option key={idx}>{element}</option>;
+          })}
+        </select>
+      </div>
+      <RenderProductos number={selected} />
+    </div>
+  );
 }
 
 export default Filtros;

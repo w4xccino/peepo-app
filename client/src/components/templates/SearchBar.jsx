@@ -6,9 +6,7 @@ function SearchBar({ placeholder, data }) {
   const manejadorEvento = (event) => {
     setTextoIngresado(event.target.value);
     const nuevoFiltroDatos = data.filter((value) => {
-      return value.descripcion
-        .toLowerCase()
-        .includes(textoIngresado.toLowerCase());
+      return value.modelo.toLowerCase().includes(textoIngresado.toLowerCase());
     });
     if (event.target.value === "") {
       setDatosFiltrados([]);
@@ -35,7 +33,7 @@ function SearchBar({ placeholder, data }) {
                 key={key}
                 href={`/productos/${el.id}`}
               >
-                <p className="px-3">{el.descripcion}</p>
+                <p className="px-3">{el.modelo}</p>
               </a>
             );
           })}

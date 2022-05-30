@@ -8,11 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   TipoProducto.init({
-    nombre_tipo_Producto: DataTypes.STRING
+    nombre_tipo_Producto: DataTypes.STRING(50)
   }, {
     sequelize,
     modelName: 'tipoProducto',
-    tableName:"tipoProducto"       
+    tableName:'tipoProducto'       
   });
   return TipoProducto;
 };

@@ -5,7 +5,7 @@ const cors = require("cors");
 
 //importar la conexion
 const { connection } = require("./dataBase/conexionData");
-const { usuario, producto } = require("./dataBase/conexionData");
+const { usuario, producto, categoria } = require("./dataBase/conexionData");
 
 app.use(express.json()); //middleware
 app.use(cors()); //important
@@ -121,6 +121,36 @@ app.get("/api/producto/:id", (req, res) => {
       });
   });
 });
+
+
+/*app.get("/api/categorias/:id", (req, res) => {
+  categoria.sync().then(() => {
+    categoria
+      .findAll({ where: { id: req.params.id } })
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.send(err);
+      });
+  });
+});*/
+
+//Filtrado API
+app.get("/api/categorias", (req, res) => {
+  categoria.sync().then(() => {
+    categoria
+      .findAll()
+      .then((data) => {
+        res.send(data);
+        //console.log(data);
+      })
+      .catch((err) => {
+        res.send(err);
+      });
+  });
+});
+
 
 app.listen(port, () =>
   console.log("Servidor iniciado en http://localhost:" + port)
