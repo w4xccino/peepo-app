@@ -49,9 +49,9 @@ function Payments(props){
       </div>
 
       <div className="flex justify-center">
-        <div className="carousel rounded-box w-48 h-64">
+        <div className="carousel rounded-box w-64 h-64">
           <div id="item1" className="carousel-item">
-              <img src={require("../imagenes/yapee.png")} alt="Burger"/>
+              <img src={require("../imagenes/yape.png")} alt="Burger"/>
           </div>
           <div id="item2" className="carousel-item">
               <img src={require("../imagenes/plin.png")} alt="Burger"/>
