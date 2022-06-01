@@ -37,7 +37,7 @@ function User(props) {
         <div className="flex justify-center">
           <div className="avatar online">
             <div className="w-48 rounded-full">
-              <img src={require("../imagenes/avatar.png")} alt="" />
+              <img src={require("../imagenes/avatar2.png")} alt="" />
             </div>
           </div>
         </div>

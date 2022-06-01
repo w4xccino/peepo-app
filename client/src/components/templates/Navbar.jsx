@@ -98,7 +98,7 @@ function Navbar() {
               </ul>
             </div>
             <div className="homt-button">
-              <a href="/productos">
+              <a href="/">
                 <button className="btn btn-ghost btn-circle">
                   {" "}
                   <svg

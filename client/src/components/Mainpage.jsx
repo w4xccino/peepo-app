@@ -23,18 +23,18 @@ function Mainpage() {
         <div className="flex justify-center">
           <div className="w-96 h-auto">
             <p className="text-justify py-6">
-              Bienvenido a PeepoApp comienze a buscar sus productos favoritos y
-              llenarlos en el carrito de compras! Tenemos todo para ti :3
-              Tenemos muchos productos de acuerdo asu necesidad en las
+            Bienvenido a PeepoApp, Navega y descubre variedad de productos de segunda mano.
+             Enviamos a más de 100 destinos nacionales, directamente a la puerta de su casa.
+            Tenemos variedad de productos de acuerdo a su necesidad en las
               siguientes categorias:
             </p>
           </div>
         </div>
         <div className="flex justify-center">
           <div className="badge badge-info">Tecnologia</div>
-          <div className="badge badge-success">Electrodomesticoss</div>
-          <div className="badge badge-warning">Carpinteria</div>
-          <div className="badge badge-error">Belleza</div>
+          <div className="badge badge-success">Hogar</div>
+          <div className="badge badge-warning">Electronicos</div>
+          <div className="badge badge-error">Moda</div>
         </div>
         <br></br>
         <div className="flex justify-center">
