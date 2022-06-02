@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       imagen: DataTypes.TEXT,
       modeloRA:DataTypes.TEXT('long'),
       precio: DataTypes.DECIMAL(10,2),
+      descuento: DataTypes.DECIMAL(10,2),
       stock: DataTypes.INTEGER,
     },
     {

@@ -11,7 +11,7 @@ app.use(express.json()); //middleware
 app.use(cors()); //important
 
 connection
-  .authenticate()
+  .sync({force:true})
   .then(() => {
     console.log("Connection to Database Successful!");
   })
