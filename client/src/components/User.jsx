@@ -76,7 +76,7 @@ function User() {
             <tbody>
               {table.map((item, index) => {
                 return (
-                  <tr>
+                  <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{item.email}</td>
                     <td>{item.nombre_tipo__producto}</td>
