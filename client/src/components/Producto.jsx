@@ -24,7 +24,6 @@ function Producto(props) {
             key={inx}
             className=" w-full min-h-screen flex flex-wrap justify-center p-6 bg-base-100"
           >
-            {console.log(item.modeloRA)}
             <div className="card w-96 h-full bg-white shadow-xl py-12">
               <figure className="px-3 pt-3">
                 <img
@@ -37,7 +36,7 @@ function Producto(props) {
                 <h2 className="card-title text-3xl text-neutral">
                   {item.modelo}
                 </h2>
-                <p className="text-3xl text-purple-600">S/ {item.precio}0</p>
+                <p className="text-3xl text-purple-600">S/ {item.precio}</p>
                 <h2 className="card-title text-neutral">Descripcion</h2>
                 <p className="text-neutral">
                   Smartphone Huawei P30 pro de segundo uso. El equipo esta en
@@ -47,15 +46,22 @@ function Producto(props) {
                 <br />
                 <br />
                 <div className="card-actions justify-center">
-                <a href={item.modeloRA}>
-                  <input className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" type="button" value="Visualizar en AR"/>
-                </a>
-                    <Link to={`/payments/${product_id}`} className="btn btn-primary">
-                      Comprar
-                    </Link>
+                  <a href={item.modeloRA}>
+                    <input
+                      className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                      type="button"
+                      value="Visualizar en AR"
+                    />
+                  </a>
+                  <Link
+                    to={`/payments/${product_id}`}
+                    className="btn btn-primary"
+                  >
+                    Comprar
+                  </Link>
                   <button className="btn btn-primary">
-                      Agregar al carrito
-                    </button>
+                    Agregar al carrito
+                  </button>
                 </div>
               </div>
             </div>
