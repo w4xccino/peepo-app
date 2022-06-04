@@ -162,13 +162,22 @@ app.post("/api/pagos", (req, res) => {
           const DETCOMPRA = detalleCompra.build({
             cantidad: 1,
             precio: precio,
-            facturaId: data.id,
+            facturaId: data.id + 1,
             productoId: product_id,
           });
           DETCOMPRA.save();
         });
       });
   });
+});
+app.post("/api/historial", (req, res) => {
+  let { email } = req.body;
+  let values = [email];
+  connection
+    .query(
+      `SELECT * FROM vs_historial_compra_cliente WHERE email='${values[0]}'`
+    )
+    .then((data) => res.send(data[0]));
 });
 
 app.listen(port, () =>
