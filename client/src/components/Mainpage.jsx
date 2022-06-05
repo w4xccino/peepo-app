@@ -7,90 +7,69 @@ function Mainpage() {
   return (
     <div>
       <Navbar />
-      <div className="w-full min-h-screen bg-base-100 p-6">
-        <div className="hero bg-base-20">
-          <img
-            src={require("../imagenes/logo.png")}
-            className="max-w-sm rounded-lg shadow-2xl"
-            alt="d"
-          />
-        </div>
-        <br></br>
+      <div className="flex justify-center">
+{/**CONTADOR UAAUAUAUAAUAAAUAAA */}
 
-        <div className="flex justify-center">
-          <h1 className="text-5xl font-bold">PeepoApp</h1>
-        </div>
-        <div className="flex justify-center">
-          <div className="w-96 h-auto">
-            <p className="text-justify py-6">
-            Bienvenido a PeepoApp, Navega y descubre variedad de productos de segunda mano.
-             Enviamos a más de 100 destinos nacionales, directamente a la puerta de su casa.
-            Tenemos variedad de productos de acuerdo a su necesidad en las
-              siguientes categorias:
-            </p>
-          </div>
-        </div>
-        <div className="flex justify-center">
+
+  <div className="carousel h-auto max-w-full p-4 space-x-4 bg-base-300 rounded-box">
+    <div className="carousel-item h-64 w-auto">
+      <img src={require("../imagenes/jordan.png")} alt="" />
+    </div> 
+    <div className="carousel-item h-64 w-auto">
+      <img src={require("../imagenes/computadora completa.png")} alt="" />
+    </div> 
+    <div className="carousel-item h-64 w-auto">
+      <img src={require("../imagenes/polo.jpg")} alt="" />
+    </div> 
+    <div className="carousel-item h-64 w-auto">
+      <img src={require("../imagenes/silla.jpg")} alt="" />
+    </div> 
+    <div className="carousel-item h-64 w-auto">
+      <img src={require("../imagenes/p30.png")} alt="" />
+    </div> 
+  </div>
+
+     
+        
+      </div>
+
+      <div className="flex justify-center bg-base-100 p-1">
+        <div className="hero-content flex-col lg:flex-row w-full">
+            <img
+              src={require("../imagenes/logo.png")}
+              className="max-w-sm rounded-lg shadow-2xl w-96 h-96"
+              alt="d"
+            />
+        <div>
+          
+      <h1 className="text-5xl font-bold text-yellow-400">PeepoApp</h1>
+      <p class="py-6 text-white ">Bienvenido a PeepoApp, Navega y descubre variedad de productos de segunda mano.
+                      Enviamos a más de 100 destinos nacionales, directamente a la puerta de su casa.
+                      Tenemos variedad de productos de acuerdo a su necesidad en las
+                      siguientes categorias:</p>
+
+        <div className="w-80 h-4 flex justify-around">
           <div className="badge badge-info">Tecnologia</div>
           <div className="badge badge-success">Hogar</div>
-          <div className="badge badge-warning">Electronicos</div>
+          <div className="badge badge-warning">Electronica</div>
           <div className="badge badge-error">Moda</div>
         </div>
-        <br></br>
-        <div className="flex justify-center">
-          <Link to="/productos" className="btn btn-primary">
-            Empieza a comprar!
+        <br></br>     
+
+
+          <Link to="/productos" className="btn bg-fuchsia-600 text-white w-56 flex justify-around">
+            Empieza a comprar
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+            </svg>
           </Link>
-        </div>
-
-        <br></br>
-
-        <div className="flex justify-center">
-          <div className="carousel rounded-box w-80 h-80">
-            <div id="item1" className="carousel-item">
-              <img
-                src="https://api.lorem.space/image/burger?w=400&h=300&hash=8B7BCDC2"
-                alt="Burger"
-              />
-            </div>
-            <div id="item2" className="carousel-item">
-              <img
-                src="https://api.lorem.space/image/burger?w=400&h=300&hash=500B67FB"
-                alt="Burger"
-              />
-            </div>
-            <div id="item3" className="carousel-item">
-              <img
-                src="https://api.lorem.space/image/burger?w=400&h=300&hash=A89D0DE6"
-                alt="Burger"
-              />
-            </div>
-            <div id="item4" className="carousel-item">
-              <img
-                src="https://api.lorem.space/image/burger?w=400&h=300&hash=225E6693"
-                alt="Burger"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="flex justify-center w-full py-2 gap-2">
-          <a href="#item1" className="btn btn-xs">
-            1
-          </a>
-          <a href="#item2" className="btn btn-xs">
-            2
-          </a>
-          <a href="#item3" className="btn btn-xs">
-            3
-          </a>
-          <a href="#item4" className="btn btn-xs">
-            4
-          </a>
-        </div>
+        
+          
       </div>
-      <Footer />
     </div>
+  </div>
+      <Footer />
+</div>
   );
 }
 export default Mainpage;
