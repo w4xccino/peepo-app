@@ -1,33 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./templates/footer";
 import Navbar from "./templates/Navbar.jsx";
+import axios from "axios";
 
-function User(props) {
-  //Consumiendo la api
-  /*  const [users, setUsers] = useState([])
+function User() {
+  let [table, setTable] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:4000/api/user')
-      .then(response => response.json())
-      .then(json => console.log(json))
-  },[])
-*/
-  /*
-{
-  users.map((user, idx) => {
-      return(
-
-      )
-    })
-}
-*/
-
-  // const [users, setUsers] = useState([])
-  // useEffect(() => {
-  //   fetch('http://localhost:4000/api/user')
-  //     .then(response => response.json())
-  //     .then(json => setUsers(json))
-  // },[])
-
+    let email = localStorage.getItem("email");
+    axios
+      .post("http://localhost:4000/api/historial", { email })
+      .then((response) => setTable(response.data));
+  }, []);
   return (
     <div>
       <Navbar />
@@ -82,31 +65,25 @@ function User(props) {
           <table className="table w-full">
             <thead>
               <tr>
-                <th></th>
-                <th>Nombre</th>
+                <th>id</th>
+                <th>Email</th>
                 <th>Pedido</th>
+                <th>Precio</th>
                 <th>Fecha</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>1</th>
-                <td>Romario</td>
-                <td>RTX 3090</td>
-                <td>Blue</td>
-              </tr>
-              <tr>
-                <th>2</th>
-                <td>Eva Sofia</td>
-                <td>Huawei p30</td>
-                <td>20/05/2022</td>
-              </tr>
-              <tr>
-                <th>3</th>
-                <td>Diego</td>
-                <td>Ceviche</td>
-                <td>12/05/2022</td>
-              </tr>
+              {table.map((item, index) => {
+                return (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{item.email}</td>
+                    <td>{item.modelo}</td>
+                    <td>S/ {item.precio}</td>
+                    <td>{item.fecha.slice(0, 10)}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
