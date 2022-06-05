@@ -10,15 +10,18 @@ module.exports = (sequelize, DataTypes) => {
     {
       nombre: DataTypes.STRING(45),
       apellido: DataTypes.STRING(45),
-      email: DataTypes.STRING(45),
+      email: {
+        type: DataTypes.STRING(45),
+        unique: true,
+      },
       contrasena: DataTypes.STRING(25),
       direccion: DataTypes.STRING(80),
       telefono: DataTypes.CHAR(20),
     },
     {
       sequelize,
-      modelName: 'usuario',
-      tableName: 'usuario'
+      modelName: "usuario",
+      tableName: "usuario",
     }
   );
   return Usuario;

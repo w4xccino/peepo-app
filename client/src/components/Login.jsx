@@ -14,6 +14,7 @@ function Login() {
       console.log("Respuesta: ", res.data);
       if (res.data[0] === "true") {
         localStorage.setItem("auth", true);
+        localStorage.setItem("user_id", res.data[5]);
         localStorage.setItem("nombre", res.data[2]);
         localStorage.setItem("telefono", res.data[1]);
         localStorage.setItem("email", res.data[3]);
