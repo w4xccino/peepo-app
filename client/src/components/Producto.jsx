@@ -38,11 +38,7 @@ function Producto(props) {
                 </h2>
                 <p className="text-3xl text-purple-600">S/ {item.precio}</p>
                 <h2 className="card-title text-neutral">Descripcion</h2>
-                <p className="text-neutral">
-                  Smartphone Huawei P30 pro de segundo uso. El equipo esta en
-                  perfecto estado 8/10, no tiene reparaciones. Me puede pagar
-                  por yape o tunki, solo interesados no sapos.
-                </p>
+                <p className="text-neutral">{item.descripcion}</p>
                 <br />
                 <br />
                 <div className="card-actions justify-center">

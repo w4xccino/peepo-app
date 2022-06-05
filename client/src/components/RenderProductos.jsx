@@ -23,7 +23,7 @@ function RenderProductos({ number }) {
                 {number == item.categoriumId && (
                   <CardProduct
                     precio={item.precio}
-                    producto={item.descripcion}
+                    producto={item.modelo}
                     imagen={item.imagen}
                     link={`/productos/${item.id}`}
                   />

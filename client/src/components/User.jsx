@@ -67,8 +67,7 @@ function User() {
               <tr>
                 <th>id</th>
                 <th>Email</th>
-                <th>Tipo Producto</th>
-                <th>Modelo</th>
+                <th>Pedido</th>
                 <th>Precio</th>
                 <th>Fecha</th>
               </tr>
@@ -79,7 +78,6 @@ function User() {
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{item.email}</td>
-                    <td>{item.nombre_tipo__producto}</td>
                     <td>{item.modelo}</td>
                     <td>S/ {item.precio}</td>
                     <td>{item.fecha.slice(0, 10)}</td>
