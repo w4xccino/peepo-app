@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import "../styles/Login.css";
 import axios from "axios";
@@ -11,9 +11,12 @@ function Register() {
     watch,
     formState: { errors },
   } = useForm({});
+
+  const [alert, setAlert] = useState("");
   const password = useRef({});
   password.current = watch("password", "");
-  //API del server
+
+  // API del server
   const url = "http://localhost:4000/api/register";
   const action = (body) => {
     axios.post(url, body).then((res) => {
@@ -30,6 +33,7 @@ function Register() {
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex flex-row flex-wrap">
         <h1 className="text-5xl font-bold mb-10">Registrate!</h1>
+        {alert.length !== 0 && <Alert text={alert} />}
         <section className="card flex-shrink-0 min-w-full max-w-lg shadow-2xl bg-base-100">
           <div className="card-body">
             <form className="flex flex-col" onSubmit={handleSubmit(action)}>
