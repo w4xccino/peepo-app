@@ -49,7 +49,7 @@ app.post("/api/login", (req, res) => {
           ];
           res.send(list);
         } else {
-          res.send("Usuario no encontrado");
+          res.send("Contraseña Incorrecta");
         }
       })
       .catch((err) => {
@@ -74,15 +74,12 @@ app.post("/api/register", (req, res) => {
         direccion: values[4],
         telefono: values[5],
       });
-      USER.save();
-    })
-    .then((data) => {
-      console.log("Usuario agregado a la base de datos");
-      res.send("Usuario agregado a la base de datos");
+      USER.save()
+        .then(() => res.send("Usuario agregado correctamente"))
+        .catch(() => res.send("Correo electronico ya existente"));
     })
     .catch((err) => {
-      console.log(err);
-      res.send(err);
+      res.send("Ocurrio un error:" + err);
     });
 });
 

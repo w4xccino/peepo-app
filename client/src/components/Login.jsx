@@ -1,17 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-
+import Alert from "./templates/Alert";
 function Login() {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const url = "http://localhost:4000/api/login";
+  const [alert, setAlert] = useState("");
 
   const action = (body) => {
     axios.post(url, body).then((res) => {
-      console.log("Respuesta: ", res.data);
       if (res.data[0] === "true") {
         localStorage.setItem("auth", true);
         localStorage.setItem("user_id", res.data[5]);
@@ -20,6 +20,8 @@ function Login() {
         localStorage.setItem("email", res.data[3]);
         localStorage.setItem("direccion", res.data[4]);
         navigate("/");
+      } else {
+        setAlert(res.data);
       }
     });
   };
@@ -36,6 +38,7 @@ function Login() {
             quidem quo voluptatum iusto enim ullam!
           </p>
         </div>
+        {alert.length !== 0 && <Alert text={alert} />}
         <form onSubmit={handleSubmit(action)}>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">

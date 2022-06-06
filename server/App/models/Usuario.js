@@ -12,7 +12,17 @@ module.exports = (sequelize, DataTypes) => {
       apellido: DataTypes.STRING(45),
       email: {
         type: DataTypes.STRING(45),
-        unique: true,
+        unique: {
+          msg: "Correo ya registrado",
+        },
+        validate: {
+          isEmail: {
+            msg: "Escriba un correo valido",
+          },
+          notEmpty: {
+            msg: "Ingrese su correo",
+          },
+        },
       },
       contrasena: DataTypes.STRING(25),
       direccion: DataTypes.STRING(80),
