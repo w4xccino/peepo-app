@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import "../styles/Login.css";
 import axios from "axios";
-
+import Alert from "./templates/Alert";
 
 function Register() {
   const {
@@ -11,20 +11,31 @@ function Register() {
     watch,
     formState: { errors },
   } = useForm({});
+
+  const [alert, setAlert] = useState("");
   const password = useRef({});
   password.current = watch("password", "");
-  //API del server
+
+  // API del server
   const url = "http://localhost:4000/api/register";
   const action = (body) => {
-    axios.post(url, body).then((res) => {
-      console.log("Respuesta: ", res.data);
-    });
+    axios
+      .post(url, body)
+      .then((res) => {
+        console.log("Respuesta: ", res.data);
+        setAlert(res.data);
+      })
+      .catch((err) => {
+        console.log(err.code);
+        alert("Algo malio sal");
+      });
   };
 
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex flex-row flex-wrap">
         <h1 className="text-5xl font-bold mb-10">Registrate!</h1>
+        {alert.length !== 0 && <Alert text={alert} />}
         <section className="card flex-shrink-0 min-w-full max-w-lg shadow-2xl bg-base-100">
           <div className="card-body">
             <form className="flex flex-col" onSubmit={handleSubmit(action)}>
@@ -129,17 +140,18 @@ function Register() {
                 <button className="mt-2 btn btn-primary">Registrarse</button>
               </div>
             </form>
-            
-            <p style={{textAlign: "center"}}>
-                ¿Ya tienes una cuenta?
-            </p>
-              
-              <div className="form-control">
-              <a style={{textAlign: "center" }} href="/login" className="label-text-alt link link-hover">
+
+            <p style={{ textAlign: "center" }}>¿Ya tienes una cuenta?</p>
+
+            <div className="form-control">
+              <a
+                style={{ textAlign: "center" }}
+                href="/login"
+                className="label-text-alt link link-hover"
+              >
                 Iniciar Sesion
               </a>
-              </div>
-
+            </div>
           </div>
         </section>
       </div>
