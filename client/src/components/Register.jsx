@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import "../styles/Login.css";
 import axios from "axios";
-import Alert from "./templates/Alert";
+import swal from "sweetalert";
 
 function Register() {
   const {
@@ -19,23 +19,28 @@ function Register() {
   // API del server
   const url = "http://localhost:4000/api/register";
   const action = (body) => {
-    axios
-      .post(url, body)
-      .then((res) => {
-        console.log("Respuesta: ", res.data);
-        setAlert(res.data);
-      })
-      .catch((err) => {
-        console.log(err.code);
-        alert("Algo malio sal");
-      });
+    axios.post(url, body).then((res) => {
+      if (res.data == 1) {
+        swal({
+          title: "Success",
+          text: "usuario registrado",
+          icon: "success",
+        });
+      } else if (res.data == 0) {
+        swal({
+          title: "Error",
+          text: "Correo ya existente",
+          icon: "error",
+        });
+      }
+      console.log("Respuesta: ", res.data);
+    });
   };
 
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex flex-row flex-wrap">
         <h1 className="text-5xl font-bold mb-10">Registrate!</h1>
-        {alert.length !== 0 && <Alert text={alert} />}
         <section className="card flex-shrink-0 min-w-full max-w-lg shadow-2xl bg-base-100">
           <div className="card-body">
             <form className="flex flex-col" onSubmit={handleSubmit(action)}>
@@ -134,10 +139,11 @@ function Register() {
                   placeholder="telefono"
                   className="input input-bordered"
                   pattern="[0-9]{9}"
+                  required
                 />
               </div>
               <div className="form-control mt-2">
-                <button className="mt-2 btn btn-primary">Registrarse</button>
+                <button className="mt-2 btn btn-primary">Registrar</button>
               </div>
             </form>
 

@@ -49,7 +49,7 @@ app.post("/api/login", (req, res) => {
           ];
           res.send(list);
         } else {
-          res.send("Contraseña Incorrecta");
+          res.send("0");
         }
       })
       .catch((err) => {
@@ -75,8 +75,8 @@ app.post("/api/register", (req, res) => {
         telefono: values[5],
       });
       USER.save()
-        .then(() => res.send("Usuario agregado correctamente"))
-        .catch(() => res.send("Correo electronico ya existente"));
+        .then(() => res.send("1"))
+        .catch(() => res.send("0"));
     })
     .catch((err) => {
       res.send("Ocurrio un error:" + err);

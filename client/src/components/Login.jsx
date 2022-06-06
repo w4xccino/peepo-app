@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Alert from "./templates/Alert";
+import swal from "sweetalert";
 function Login() {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
@@ -21,11 +22,14 @@ function Login() {
         localStorage.setItem("direccion", res.data[4]);
         navigate("/");
       } else {
-        setAlert(res.data);
+        swal({
+          title: "Error",
+          text: "Contraseña incorrecta",
+          icon: "error",
+        });
       }
     });
   };
-
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
