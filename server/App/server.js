@@ -49,7 +49,7 @@ app.post("/api/login", (req, res) => {
           ];
           res.send(list);
         } else {
-          res.send("Usuario no encontrado");
+          res.send("Contraseña Incorrecta");
         }
       })
       .catch((err) => {

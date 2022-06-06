@@ -1,4 +1,4 @@
-function Alert({ text }) {
+function Alert({ text, caso }) {
   return (
     <div className="alert alert-warning shadow-lg">
       <div>
