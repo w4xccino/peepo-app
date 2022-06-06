@@ -20,11 +20,19 @@ function Register() {
   const url = "http://localhost:4000/api/register";
   const action = (body) => {
     axios.post(url, body).then((res) => {
-      swal({
-        title: "Success",
-        text: res.data.message,
-        icon: "Error",
-      });
+      if (res.data == 1) {
+        swal({
+          title: "Success",
+          text: "usuario registrado",
+          icon: "success",
+        });
+      } else if (res.data == 0) {
+        swal({
+          title: "Error",
+          text: "Correo ya existente",
+          icon: "error",
+        });
+      }
       console.log("Respuesta: ", res.data);
     });
   };
@@ -33,7 +41,6 @@ function Register() {
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex flex-row flex-wrap">
         <h1 className="text-5xl font-bold mb-10">Registrate!</h1>
-        {alert.length !== 0 && <Alert text={alert} />}
         <section className="card flex-shrink-0 min-w-full max-w-lg shadow-2xl bg-base-100">
           <div className="card-body">
             <form className="flex flex-col" onSubmit={handleSubmit(action)}>
