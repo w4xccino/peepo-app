@@ -26,10 +26,13 @@ function Peepoapp() {
 
   return (
     <div>
+      <div className="hidden lg:flex">
+         <img src={require("../imagenes/descuento.png")} alt="Burger" />
+      </div>
       {/* Barra de Navegacion dentro del body */}
       <Navbar />
       {/* Contenedor principal de la pagina */}
-      <div className="w-full min-h-screen p-6">
+      <div className="w-full min-h-screen">
         <div className="flex flex-wrap justify-center ">
           {/* Color del contenedor responsive */}
           {/* Integracion de los cards productos con sus props */}
