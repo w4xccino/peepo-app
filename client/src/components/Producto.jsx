@@ -18,35 +18,36 @@ function Producto(props) {
     <div>
       {/* Barra de Navegacion dentro del body */}
       <Navbar />
+      <div className="w-full h-40 hidden lg:flex"> </div>
       {producto.map((item, inx) => {
         return (
           <div
             key={inx}
-            className=" w-full min-h-screen flex flex-wrap justify-center p-6 bg-base-100"
+            className="flex justify-center bg-base-100 p-6"
           >
-            <div className="card w-96 h-full bg-white shadow-xl py-12">
+            <div className="hero-content flex-col lg:flex-row w-full bg-white rounded-xl shadow-xl py-12">
               <figure className="px-3 pt-3">
                 <img
                   src={require(`../imagenes/${item.imagen}`)}
                   alt="Shoes"
-                  className="h-64 w-auto rounded-xl"
+                  className="rounded-xl w-96 h-auto"
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title text-3xl text-neutral">
+                <h2 className="card-title text-4xl text-neutral">
                   {item.modelo}
                 </h2>
-                <p className="text-3xl text-purple-600">S/ {item.precio}</p>
-                <h2 className="card-title text-neutral">Descripcion</h2>
+                <p className="text-lg line-through">S/ 500.00</p>
+                 <p className="text-2xl text-lime-500">S/ {item.precio}(Oferta)</p>
+                <p className="text-xl font-bold text-black">Descripcion</p>
                 <p className="text-neutral">{item.descripcion}</p>
-                <br />
                 <br />
                 <div className="card-actions justify-center">
                   <a href={item.modeloRA}>
                     <input
-                      className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                      className="btn btn-active"
                       type="button"
-                      value="Visualizar en AR"
+                      value="Visualizar en Realidad Aumentada"
                     />
                   </a>
                   <Link
@@ -55,15 +56,14 @@ function Producto(props) {
                   >
                     Comprar
                   </Link>
-                  <button className="btn btn-primary">
-                    Agregar al carrito
-                  </button>
+                  <p className="text-black">14+ unidades disponibles</p>
                 </div>
               </div>
             </div>
           </div>
         );
       })}
+      <div className="w-full h-52 hidden lg:flex"> </div>
       <Footer />
     </div>
   );
