@@ -24,113 +24,88 @@ function Payments(props) {
   return (
     <div>
       <Navbar />
-      <div className="w-full min-h-screen bg-base-100 p-6 ">
-        <div>
-          {producto.map((item, inx) => {
-            return (
-              <div key={inx}>
-                <div className="flex justify-center">
-                  <h1 className="card-title text-4xl text-white">
-                    Pagina de Pagos
-                  </h1>
-                </div>
-                <br></br>
-                {/* Imagen del Producto*/}
-                <div className="flex justify-center">
-                  <div className="avatar">
-                    <div className="w-64 rounded-box">
-                      <img
-                        src={require(`../imagenes/${item.imagen}`)}
-                        alt="logo"
-                      />
-                    </div>
+      <div className="w-full h-24 hidden lg:flex"> </div>
+        {producto.map((item, inx) => {
+          return (
+            <div key={inx} 
+            className="flex justify-center bg-base-100 p-6">
+              {/* Imagen del Producto*/}
+              <div className="hero-content flex-col lg:flex-row w-auto bg-white rounded-xl">
+                <figure className="bg-white rounded-xl px-2">
+                    <img
+                      src={require(`../imagenes/${item.imagen}`)}
+                      alt="logo"
+                      className="rounded-xl w-96 h-auto"
+                    />
+                  <div className="flex justify-center">
+                     <h2 className="card-title text-4xl text-neutral">
+                        {item.modelo}</h2>
                   </div>
-                </div>
-                <br></br>
-                {/* Nombre del producto*/}
-                <div className="flex justify-center">
-                  <h2 className="card-title text-white">{item.descripcion}</h2>
-                </div>
-                {/* Precio del producto*/}
-                <div className="flex justify-center">
-                  <h2 className="card-title text-yellow-500">
-                    S/ {item.precio}
-                  </h2>
-                </div>
-
-                <div className="flex justify-center">
-                  <h2 className="card-title text-white">
-                    Seleccione su Metodo de Pago
-                  </h2>
-                </div>
-
-                <div className="flex justify-center">
-                  <div className="carousel rounded-box w-64 h-64">
-                    <div id="item1" className="carousel-item">
-                      <img src={require("../imagenes/yape.png")} alt="Burger" />
-                    </div>
-                    <div id="item2" className="carousel-item">
-                      <img src={require("../imagenes/plin.png")} alt="Burger" />
-                    </div>
-                    <div id="item3" className="carousel-item">
-                      <img
-                        src={require("../imagenes/paypal.png")}
-                        alt="Burger"
-                      />
-                    </div>
-                    <div id="item4" className="carousel-item">
-                      <img
-                        src="https://api.lorem.space/image/burger?w=400&h=300&hash=225E6693"
-                        alt="Burger"
-                      />
-                    </div>
+                  <div className="flex justify-start bg-white">
+                    <h2 className="text-lg text-black">Descuento:</h2>
+                    <h2 className="text-lg ml-48 text-lime-400"> 30%</h2>
                   </div>
-                </div>
-                {/* Carrusel de metodos de pagos*/}
-                <div className="flex justify-center w-full py-2 gap-2">
-                  <a href="#item1" className="btn btn-xs">
-                    1
-                  </a>
-                  <a href="#item2" className="btn btn-xs">
-                    2
-                  </a>
-                  <a href="#item3" className="btn btn-xs">
-                    3
-                  </a>
-                  <a href="#item4" className="btn btn-xs">
-                    4
-                  </a>
-                </div>
 
-                <br></br>
-                {/* Funcionalidad de agregar al historial de pedidos*/}
-                <div className="flex justify-center">
-                  <button onClick={pagar} className="btn btn-primary">
-                    Confirmar Pago
-                  </button>
-                </div>
-                <br></br>
-                <div className="flex justify-center">
-                  <input
-                    type="email"
-                    className="w-64 h-8 px-3 py-1.5 text-gray-700 bg-white border border-solid rounded"
-                    id="email"
-                    placeholder="Ingrese su correo electronico"
-                  />
-                </div>
-                <br></br>
-                {/*Enviar la factura por correo*/}
-                <div className="flex justify-center">
-                  <button className="btn btn-secondary">Enviar Factura</button>
-                </div>
-
-                {/*Cierre del Contenedor del Mapeo*/}
-              </div>
-            );
-          })}
+                  <div className="flex justify-start bg-white">
+                    <h2 className="text-lg text-black">Antes:</h2>
+                    <h2 className="text-lg line-through ml-48 text-black">S/500.00 </h2>
+                  </div>
+                  <div className="flex justify-start bg-white rounded-xl">
+                    <h2 className="card-title text-lime-500">Total: </h2>
+                    <h2 className="card-title text-2xl text-lime-500 ml-48">S/{item.precio}</h2>
+                  </div>
+                </figure>
+                    
+      {/* detalles del producto*/}
+      <div className="w-80   bg-white rounded-2xl">
+        <div className="flex justify-center">
+          <h2 className="card-title text-black">
+            Seleccione su Metodo de Pago
+          </h2>
+          </div>
+    {/* Carrusel de metodos de pagos*/}
+      <div className="flex justify-center">
+        <div className="carousel rounded-box w-64 h-64">
+          <div id="item1" className="carousel-item">
+            <img src={require("../imagenes/yape.png")} alt="Burger" />
+          </div>
+          <div id="item2" className="carousel-item">
+            <img src={require("../imagenes/plin.png")} alt="Burger" />
+          </div>
+          <div id="item3" className="carousel-item">
+            <img
+              src={require("../imagenes/paypal.png")}
+              alt="Burger"
+            />
+          </div>
         </div>
       </div>
+
+    <div className="flex justify-center w-full py-2 gap-2 hidden lg:flex">
+      <a href="#item1" className="btn btn-xs">1
+      </a>
+      <a href="#item2" className="btn btn-xs">2
+      </a>
+      <a href="#item3" className="btn btn-xs">3
+      </a>    
     </div>
+   
+    <div className="flex justify-center py-2">
+      <button onClick={pagar} className="btn btn-primary w-64">
+         Confirmar Pago
+      </button>
+    </div>
+    <div className="flex justify-center py-2">
+     {/*Enviar la factura por correo*/}
+       <button className="btn btn-secondary w-64">Enviar Factura</button>
+    </div>
+    </div>
+    </div>
+
+    </div>
+      );
+    })}
+  </div>
   );
 }
 export default Payments;

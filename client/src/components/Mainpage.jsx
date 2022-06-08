@@ -7,6 +7,8 @@ function Mainpage() {
   return (
     <div>
       <Navbar />
+      <div className="w-full h-24 hidden lg:flex"> </div>
+
       <div className="flex justify-center">
 {/**CONTADOR UAAUAUAUAAUAAAUAAA */}
 
@@ -68,6 +70,8 @@ function Mainpage() {
       </div>
     </div>
   </div>
+    <div className="w-full h-24 hidden lg:flex"> </div>
+
       <Footer />
 </div>
   );
