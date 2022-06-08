@@ -12,44 +12,36 @@ function User() {
       .then((response) => setTable(response.data));
   }, []);
   return (
-    <div>
+    <div className="w-full min-h-screen bg-base-100">
       <Navbar />
-
-      <div className="w-full min-h-screen bg-base-100 p-6 ">
         {/*Logo*/}
-        <div className="flex justify-center">
-          <div className="avatar online">
-            <div className="w-48 rounded-full">
-              <img src={require("../imagenes/avatar2.png")} alt="" />
-            </div>
+        <div className="">
+          <div className="flex justify-center">
+            <div className="avatar online w-64">
+              <img src={require("../imagenes/avatar2.png")}
+               alt="foto_perfil"/>
+              </div>
           </div>
         </div>
         {/*Nombre de usuario*/}
         <div className="flex justify-center">
-          <h2 className="card-title text-yellow-500">
+          <h2 className="text-2xl font-bold text-yellow-400">
             {localStorage.getItem("nombre")}
           </h2>
         </div>
-        <div className="flex justify-center">
-          <p>{}</p>
-        </div>
-        <br></br>
-        <br></br>
         {/*Informacion de Usuario*/}
-        <div className="flex justify-self-start">
-          <div className="w-64 h-auto">
-            <h1 className="font-bold"> Información de usuario </h1>
+        <div className="flex justify-center">
+          <div className="w-auto h-auto">
+            <h1 className="text-xl font-bold"> Información del usuario </h1>
             <br></br>
             <div className="flex space-x-2">
               <h2 className="font-bold"> Email: </h2>
               <p>{localStorage.getItem("email")}</p>
-            </div>
-            <br></br>
+            </div>       
             <div className="flex space-x-2">
               <h2 className="font-bold"> Dirección: </h2>
               <p>{localStorage.getItem("direccion")}</p>
             </div>
-            <br></br>
             <div className="flex space-x-2">
               <h2 className="font-bold"> Telefono: </h2>
               <p>{localStorage.getItem("telefono")}</p>
@@ -58,24 +50,26 @@ function User() {
         </div>
         <br></br>
         <br></br>
-        <h1 className="card-title"> Historial de Pedidos </h1>
+        <div className="flex justify-center">
+        <h1 className="text-2xl font-bold text-lime-500"> Historial de Pedidos </h1>
+        </div>
         <br></br>
         {/*Tabla de historial de pedidos*/}
-        <div className="overflow-x-auto">
-          <table className="table w-full">
+        <div className="overflow-x-auto p-2">
+          <table className="table w-full ">
             <thead>
               <tr>
-                <th>id</th>
-                <th>Email</th>
-                <th>Pedido</th>
-                <th>Precio</th>
-                <th>Fecha</th>
+                <th className="bg-violet-800">id</th>
+                <th className="bg-violet-800">Email</th>
+                <th className="bg-violet-800">Pedido</th>
+                <th className="bg-violet-800">Precio</th>
+                <th className="bg-violet-800">Fecha</th>
               </tr>
             </thead>
             <tbody>
               {table.map((item, index) => {
                 return (
-                  <tr key={index}>
+                  <tr key={index} className="bg-violet-800">
                     <td>{index + 1}</td>
                     <td>{item.email}</td>
                     <td>{item.modelo}</td>
@@ -87,9 +81,6 @@ function User() {
             </tbody>
           </table>
         </div>
-      </div>
-
-      {/*Footer*/}
       <Footer />
     </div>
   );
