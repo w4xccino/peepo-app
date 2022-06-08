@@ -10,8 +10,6 @@ function Mainpage() {
       <div className="w-full h-24 hidden lg:flex"> </div>
 
       <div className="flex justify-center">
-{/**CONTADOR UAAUAUAUAAUAAAUAAA */}
-
 
   <div className="carousel h-auto max-w-full p-4 space-x-4 bg-base-300 rounded-box">
     <div className="carousel-item h-64 w-auto">
@@ -30,8 +28,6 @@ function Mainpage() {
       <img src={require("../imagenes/p30.png")} alt="" />
     </div> 
   </div>
-
-     
         
       </div>
 
@@ -45,7 +41,7 @@ function Mainpage() {
         <div>
           
       <h1 className="text-5xl font-bold text-yellow-400">PeepoApp</h1>
-      <p class="py-6 text-white ">Bienvenido a PeepoApp, Navega y descubre variedad de productos de segunda mano.
+      <p className="py-6 text-white ">Bienvenido a PeepoApp, Navega y descubre variedad de productos de segunda mano.
                       Enviamos a más de 100 destinos nacionales, directamente a la puerta de su casa.
                       Tenemos variedad de productos de acuerdo a su necesidad en las
                       siguientes categorias:</p>
@@ -58,20 +54,16 @@ function Mainpage() {
         </div>
         <br></br>     
 
-
           <Link to="/productos" className="btn bg-fuchsia-600 text-white w-56 flex justify-around">
             Empieza a comprar
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" />
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
             </svg>
           </Link>
-        
-          
       </div>
     </div>
   </div>
     <div className="w-full h-24 hidden lg:flex"> </div>
-
       <Footer />
 </div>
   );

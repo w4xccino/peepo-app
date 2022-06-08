@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import CardProduct from "./templates/card-product";
 import Footer from "./templates/footer";
 import Navbar from "./templates/Navbar.jsx";
-import Filtros from "./templates/filtros.jsx";
 
 function Peepoapp() {
   const [producto, setProduct] = useState([]);
@@ -29,12 +28,10 @@ function Peepoapp() {
       <div className="hidden lg:flex">
          <img src={require("../imagenes/descuento.png")} alt="Burger" />
       </div>
-      {/* Barra de Navegacion dentro del body */}
       <Navbar />
       {/* Contenedor principal de la pagina */}
       <div className="w-full min-h-screen">
         <div className="flex flex-wrap justify-center ">
-          {/* Color del contenedor responsive */}
           {/* Integracion de los cards productos con sus props */}
           {producto.map((item, idx) => {
             return (
@@ -50,8 +47,6 @@ function Peepoapp() {
           })}
         </div>
       </div>
-
-      {/* Area del componente footer*/}
       <Footer />
     </div>
   );

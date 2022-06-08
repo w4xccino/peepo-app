@@ -19,12 +19,12 @@ function CardProduct(props) {
       <h2 className="card-title text-black ">{props.producto}</h2>
         <h2 className="card-title text-black ">S/{props.precio}</h2>
 
-        <div class="rating">
-          <input type="radio" name="rating-4" class="mask mask-star-2 bg-yellow-300" />
-          <input type="radio" name="rating-4" class="mask mask-star-2 bg-yellow-300"/>
-          <input type="radio" name="rating-4" class="mask mask-star-2 bg-yellow-300" />
-          <input type="radio" name="rating-4" class="mask mask-star-2 bg-yellow-300" />
-          <input type="radio" name="rating-4" class="mask mask-star-2 bg-yellow-300" />
+        <div className="rating">
+          <input type="radio" name="rating-4" className="mask mask-star-2 bg-yellow-300" />
+          <input type="radio" name="rating-4" className="mask mask-star-2 bg-yellow-300"/>
+          <input type="radio" name="rating-4" className="mask mask-star-2 bg-yellow-300" />
+          <input type="radio" name="rating-4" className="mask mask-star-2 bg-yellow-300" />
+          <input type="radio" name="rating-4" className="mask mask-star-2 bg-yellow-300" />
         </div>
       </div>
     {/*Boton de redireccionamiento al producto individual / aun nose como hacer esto  para cada productoxd*/}
