@@ -15,18 +15,26 @@ function Payments(props) {
   }, [product_id]);
 
   function pagar() {
-    swal({
-      title: "Felicitaciones",
-      text: "Compra realizada exitosamente",
-      icon: "success",
-    });
-    
     let user_id = localStorage.getItem("user_id");
     let precio = producto[0].precio;
     axios
       .post("http://localhost:4000/api/pagos", { product_id, user_id, precio })
-      .then((res) => console.log("Respuesta: ", res.data));
-  }
+      .then((res) => {
+        if (res.data === 1) {
+          swal({
+            title: "Pago rechazado",
+            text: "Ocurrio un error en la transacción",
+            icon: "error",
+          });
+        } else if (res.data === 0) {
+          swal({
+            title: "Pago rechazado",
+            text: "Ocurrio un error en la transacción",
+            icon: "error",
+          });
+        }
+      });
+    }
 
   return (
     <div>

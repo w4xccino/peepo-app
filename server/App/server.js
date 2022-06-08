@@ -162,7 +162,9 @@ app.post("/api/pagos", (req, res) => {
             facturaId: data.id + 1,
             productoId: product_id,
           });
-          DETCOMPRA.save();
+          DETCOMPRA.save()
+            .then(() => res.send("1"))
+            .catch(() => res.send("0"));
         });
       });
   });
