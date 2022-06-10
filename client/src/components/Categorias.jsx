@@ -7,7 +7,7 @@ function Categorias() {
   const [categoria, setCategoria] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/categorias")
+    fetch("https://peepo-app-server.herokuapp.com/api/categorias")
       .then((response) => response.json())
       .then((json) => setCategoria(json));
   }, []);

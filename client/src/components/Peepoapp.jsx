@@ -6,7 +6,7 @@ import Navbar from "./templates/Navbar.jsx";
 function Peepoapp() {
   const [producto, setProduct] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/api/productos")
+    fetch("https://peepo-app-server.herokuapp.com/api/productos")
       .then((response) => response.json())
       .then((json) => setProduct(json));
   }, []);
@@ -14,7 +14,7 @@ function Peepoapp() {
   //Consumiendo la api de categoria
   const [categoriaa, setCategoria] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/api/categorias")
+    fetch("https://peepo-app-server.herokuapp.com/api/categorias")
       .then((response) => response.json())
       .then((json) => setCategoria(json));
   }, []);
@@ -25,9 +25,6 @@ function Peepoapp() {
 
   return (
     <div>
-      <div className="hidden lg:flex">
-         <img src={require("../imagenes/descuento.png")} alt="Burger" />
-      </div>
       <Navbar />
       {/* Contenedor principal de la pagina */}
       <div className="w-full min-h-screen">

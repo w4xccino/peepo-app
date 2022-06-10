@@ -8,7 +8,7 @@ function Producto(props) {
   const { product_id } = useParams();
   const [producto, setProducto] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:4000/api/producto/${product_id}`)
+    fetch(`https://peepo-app-server.herokuapp.com/api/producto/${product_id}`)
       .then((data) => data.json())
       .then((json) => {
         setProducto(json);
@@ -37,7 +37,7 @@ function Producto(props) {
                 <h2 className="card-title text-4xl text-neutral">
                   {item.modelo}
                 </h2>
-                <p className="text-lg line-through">S/ 500.00</p>
+                <p className="text-lg line-through">S/{item.descuento}</p>
                  <p className="text-2xl text-lime-500">S/ {item.precio}(Oferta)</p>
                 <p className="text-xl font-bold text-black">Descripcion</p>
                 <p className="text-neutral">{item.descripcion}</p>

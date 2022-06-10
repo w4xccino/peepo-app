@@ -12,7 +12,7 @@ function Home() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/productos").then((response) =>
+    fetch("https://peepo-app-server.herokuapp.com/api/productos").then((response) =>
       response.json().then((json) => setData(json))
     );
   }, []);
@@ -22,11 +22,9 @@ function Home() {
       {/*Barra navegacion */}
       <div className="navbar bg-base-100">
         <div className="navbar-start w-20">
-          {" "}
           {/*Menu Amburguesa pi */}
           <div className="dropdown">
             <label tabIndex="0" className="btn btn-ghost lg:hidden">
-              {" "}
               {/*Icono*/}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +62,7 @@ function Home() {
                       d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                     ></path>
                   </svg>
-                  Home{" "}
+                  Home
                 </a>
               </li>
 
@@ -81,7 +79,7 @@ function Home() {
                       clipRule="evenodd"
                     />
                   </svg>
-                  Perfil{" "}
+                  Perfil
                 </a>
               </li>
 
