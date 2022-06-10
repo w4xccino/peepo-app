@@ -5,7 +5,7 @@ function RenderProductos({ number }) {
   const cookies = new Cookies();
   const [producto, setProduct] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/api/productos")
+    fetch("https://peepo-app-server.herokuapp.com/api/productos")
       .then((response) => response.json())
       .then((json) => setProduct(json));
   }, []);
@@ -23,7 +23,7 @@ function RenderProductos({ number }) {
                 {number == item.categoriumId && (
                   <CardProduct
                     precio={item.precio}
-                    producto={item.descripcion}
+                    producto={item.modelo}
                     imagen={item.imagen}
                     link={`/productos/${item.id}`}
                   />

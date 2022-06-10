@@ -1,72 +1,47 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./templates/footer";
 import Navbar from "./templates/Navbar.jsx";
+import axios from "axios";
 
-function User(props) {
-  //Consumiendo la api
-  /*  const [users, setUsers] = useState([])
+function User() {
+  let [table, setTable] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:4000/api/user')
-      .then(response => response.json())
-      .then(json => console.log(json))
-  },[])
-*/
-  /*
-{
-  users.map((user, idx) => {
-      return(
-
-      )
-    })
-}
-*/
-
-  // const [users, setUsers] = useState([])
-  // useEffect(() => {
-  //   fetch('http://localhost:4000/api/user')
-  //     .then(response => response.json())
-  //     .then(json => setUsers(json))
-  // },[])
-
+    let email = localStorage.getItem("email");
+    axios
+      .post("https://peepo-app-server.herokuapp.com/api/historial", { email })
+      .then((response) => setTable(response.data));
+  }, []);
   return (
-    <div>
+    <div className="w-full min-h-screen bg-base-100">
       <Navbar />
-
-      <div className="w-full min-h-screen bg-base-100 p-6 ">
         {/*Logo*/}
-        <div className="flex justify-center">
-          <div className="avatar online">
-            <div className="w-48 rounded-full">
-              <img src={require("../imagenes/avatar.png")} alt="" />
-            </div>
+        <div className="">
+          <div className="flex justify-center">
+            <div className="avatar online w-64">
+              <img src={require("../imagenes/avatar2.png")}
+               alt="foto_perfil"/>
+              </div>
           </div>
         </div>
         {/*Nombre de usuario*/}
         <div className="flex justify-center">
-          <h2 className="card-title text-yellow-500">
+          <h2 className="text-2xl font-bold text-yellow-400">
             {localStorage.getItem("nombre")}
           </h2>
         </div>
-        <div className="flex justify-center">
-          <p>{}</p>
-        </div>
-        <br></br>
-        <br></br>
         {/*Informacion de Usuario*/}
-        <div className="flex justify-self-start">
-          <div className="w-64 h-auto">
-            <h1 className="font-bold"> Información de usuario </h1>
+        <div className="flex justify-center">
+          <div className="w-auto h-auto">
+            <h1 className="text-xl font-bold"> Información del usuario </h1>
             <br></br>
             <div className="flex space-x-2">
               <h2 className="font-bold"> Email: </h2>
               <p>{localStorage.getItem("email")}</p>
-            </div>
-            <br></br>
+            </div>       
             <div className="flex space-x-2">
               <h2 className="font-bold"> Dirección: </h2>
               <p>{localStorage.getItem("direccion")}</p>
             </div>
-            <br></br>
             <div className="flex space-x-2">
               <h2 className="font-bold"> Telefono: </h2>
               <p>{localStorage.getItem("telefono")}</p>
@@ -75,44 +50,37 @@ function User(props) {
         </div>
         <br></br>
         <br></br>
-        <h1 className="card-title"> Historial de Pedidos </h1>
+        <div className="flex justify-center">
+        <h1 className="text-2xl font-bold text-lime-500"> Historial de Pedidos </h1>
+        </div>
         <br></br>
         {/*Tabla de historial de pedidos*/}
-        <div className="overflow-x-auto">
-          <table className="table w-full">
+        <div className="overflow-x-auto p-2">
+          <table className="table w-full ">
             <thead>
               <tr>
-                <th></th>
-                <th>Nombre</th>
+                <th>id</th>
+                <th>Email</th>
                 <th>Pedido</th>
+                <th>Precio</th>
                 <th>Fecha</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>1</th>
-                <td>Romario</td>
-                <td>RTX 3090</td>
-                <td>Blue</td>
-              </tr>
-              <tr>
-                <th>2</th>
-                <td>Eva Sofia</td>
-                <td>Huawei p30</td>
-                <td>20/05/2022</td>
-              </tr>
-              <tr>
-                <th>3</th>
-                <td>Diego</td>
-                <td>Ceviche</td>
-                <td>12/05/2022</td>
-              </tr>
+              {table.map((item, index) => {
+                return (
+                  <tr key={index} >
+                    <td>{index + 1}</td>
+                    <td>{item.email}</td>
+                    <td>{item.modelo}</td>
+                    <td>S/ {item.precio}</td>
+                    <td>{item.fecha.slice(0, 10)}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
-      </div>
-
-      {/*Footer*/}
       <Footer />
     </div>
   );
