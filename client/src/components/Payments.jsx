@@ -7,7 +7,7 @@ function Payments(props) {
   const { product_id } = useParams();
   const [producto, setProducto] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:4000/api/producto/${product_id}`)
+    fetch(`https://peepo-app-server.herokuapp.com/api/producto/${product_id}`)
       .then((data) => data.json())
       .then((json) => {
         setProducto(json);
@@ -18,7 +18,7 @@ function Payments(props) {
     let user_id = localStorage.getItem("user_id");
     let precio = producto[0].precio;
     axios
-      .post("http://localhost:4000/api/pagos", { product_id, user_id, precio })
+      .post("https://peepo-app-server.herokuapp.com/api/pagos", { product_id, user_id, precio })
       .then((res) => {
         if (res.data === 1) {
           swal({
@@ -87,23 +87,27 @@ function Payments(props) {
           </div>
     {/* Carrusel de metodos de pagos*/}
       <div className="flex justify-center">
-        <div className="carousel rounded-box w-64 h-64">
+        <div className="carousel rounded-box w-64 h-96">
           <div id="item1" className="carousel-item">
-            <img src={require("../imagenes/yape.png")} alt="Burger" />
+          <figure className="w-64">
+            <img src={require("../imagenes/yapee.png")} alt="Yape" className="rounded-xl" />
+          </figure>
           </div>
           <div id="item2" className="carousel-item">
-            <img src={require("../imagenes/plin.png")} alt="Burger" />
+          <figure className="w-64">
+            <img src={require("../imagenes/plin.png")} alt="Plin" className="rounded-xl"/>
+            </figure>
           </div>
           <div id="item3" className="carousel-item">
-            <img
-              src={require("../imagenes/paypal.png")}
-              alt="Burger"
+          <figure className="w-64">
+            <img src={require("../imagenes/agora.png")} alt="agora" className="rounded-xl"
             />
+            </figure>
           </div>
         </div>
       </div>
 
-    <div className="flex justify-center w-full py-2 gap-2 hidden lg:flex">
+    <div className="flex justify-center w-full py-1 gap-2 hidden lg:flex">
       <a href="#item1" className="btn btn-xs">1
         </a>
       <a href="#item2" className="btn btn-xs">2
@@ -112,22 +116,10 @@ function Payments(props) {
         </a>    
     </div>
  
-    <div className="flex justify-center py-2">
+    <div className="flex justify-center py-1">
       <button onClick={pagar} className="btn btn-primary w-64">
          Confirmar Pago
       </button>
-    </div>
-    <div className="flex justify-center py-2">  
-      <input
-        type="email"
-        className="w-64 h-8 px-3 py-1.5 text-gray-700 bg-white border border-solid rounded"
-        id="email"
-        placeholder="Ingrese su correo electronico"
-      />
-      {/*Enviar la factura por correo*/}
-    </div>
-    <div className="flex justify-center py-2">
-       <button className="btn btn-secondary w-64">Enviar Factura</button>
     </div>
     </div>
     </div>

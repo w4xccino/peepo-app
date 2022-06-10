@@ -8,7 +8,7 @@ import swal from "sweetalert";
 function Login() {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-  const url = "http://localhost:4000/api/login";
+  const url = "https://peepo-app-server.herokuapp.com/api/login";
   const [alert, setAlert] = useState("");
 
   const action = (body) => {

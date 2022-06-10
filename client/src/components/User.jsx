@@ -8,7 +8,7 @@ function User() {
   useEffect(() => {
     let email = localStorage.getItem("email");
     axios
-      .post("http://localhost:4000/api/historial", { email })
+      .post("https://peepo-app-server.herokuapp.com/api/historial", { email })
       .then((response) => setTable(response.data));
   }, []);
   return (
@@ -59,17 +59,17 @@ function User() {
           <table className="table w-full ">
             <thead>
               <tr>
-                <th className="bg-violet-800">id</th>
-                <th className="bg-violet-800">Email</th>
-                <th className="bg-violet-800">Pedido</th>
-                <th className="bg-violet-800">Precio</th>
-                <th className="bg-violet-800">Fecha</th>
+                <th>id</th>
+                <th>Email</th>
+                <th>Pedido</th>
+                <th>Precio</th>
+                <th>Fecha</th>
               </tr>
             </thead>
             <tbody>
               {table.map((item, index) => {
                 return (
-                  <tr key={index} className="bg-violet-800">
+                  <tr key={index} >
                     <td>{index + 1}</td>
                     <td>{item.email}</td>
                     <td>{item.modelo}</td>
