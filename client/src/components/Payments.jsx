@@ -22,9 +22,9 @@ function Payments(props) {
       .then((res) => {
         if (res.data === 1) {
           swal({
-            title: "Pago rechazado",
-            text: "Ocurrio un error en la transacción",
-            icon: "error",
+            title: "Felicitaciones",
+            text: "Compra realizada exitosamente",
+            icon: "success",
           });
         } else if (res.data === 0) {
           swal({
@@ -67,14 +67,10 @@ function Payments(props) {
                     <h2 className="card-title text-4xl text-neutral">
                         {item.modelo}</h2>
                   </div>
-                  <div className="flex justify-start bg-white">
-                    <h2 className="text-lg text-black">Descuento:</h2>
-                    <h2 className="text-lg ml-48 text-lime-400"> 30%</h2>
-                  </div>
 
                   <div className="flex justify-start bg-white">
                     <h2 className="text-lg text-black">Antes:</h2>
-                    <h2 className="text-lg line-through ml-48 text-black">S/500.00 </h2>
+                    <h2 className="text-lg line-through ml-48 text-black">S/{item.descuento}</h2>
                   </div>
                   <div className="flex justify-start bg-white rounded-xl">
                     <h2 className="card-title text-lime-500">Total: </h2>

@@ -25,9 +25,6 @@ function Peepoapp() {
 
   return (
     <div>
-      <div className="hidden lg:flex">
-         <img src={require("../imagenes/descuento.png")} alt="Burger" />
-      </div>
       <Navbar />
       {/* Contenedor principal de la pagina */}
       <div className="w-full min-h-screen">
