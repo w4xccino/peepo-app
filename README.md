@@ -42,6 +42,17 @@ Install dependencies
   npm install
 ```
 
+Set environment variables.
+> Copy the .env.example file and replace with your SERVER_URL address
+
+``` bash
+  cp .env.example .env
+```
+
+``` bash
+  REACT_APP_SERVER_URL=<your backend url>
+```
+
 Start the server (server)
 
 ```bash

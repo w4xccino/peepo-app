@@ -5,11 +5,14 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import Alert from "./templates/Alert";
 import swal from "sweetalert";
+
 function Login() {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-  const url = "https://peepo-app-server.herokuapp.com/api/login";
+  const url = `${process.env.REACT_APP_SERVER_URL}/api/login`;
   const [alert, setAlert] = useState("");
+
+  console.log(process.env.REACT_APP_SERVER_URL);
 
   const action = (body) => {
     axios.post(url, body).then((res) => {
@@ -30,16 +33,13 @@ function Login() {
       }
     });
   };
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Ingresa Ahora!</h1>
           <p className="py-6">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi
-            cupiditate vitae possimus ab molestias temporibus harum enim neque
-            voluptatibus, commodi voluptates exercitationem? Temporibus omnis
-            quidem quo voluptatum iusto enim ullam!
           </p>
         </div>
         {alert.length !== 0 && <Alert text={alert} />}

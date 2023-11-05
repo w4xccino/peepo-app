@@ -8,7 +8,7 @@ function Producto(props) {
   const { product_id } = useParams();
   const [producto, setProducto] = useState([]);
   useEffect(() => {
-    fetch(`https://peepo-app-server.herokuapp.com/api/producto/${product_id}`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}/api/producto/${product_id}`)
       .then((data) => data.json())
       .then((json) => {
         setProducto(json);

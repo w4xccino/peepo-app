@@ -12,7 +12,7 @@ function Home() {
   };
 
   useEffect(() => {
-    fetch("https://peepo-app-server.herokuapp.com/api/productos").then((response) =>
+    fetch("${process.env.REACT_APP_SERVER_URL}/api/productos").then((response) =>
       response.json().then((json) => setData(json))
     );
   }, []);

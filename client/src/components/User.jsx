@@ -8,7 +8,7 @@ function User() {
   useEffect(() => {
     let email = localStorage.getItem("email");
     axios
-      .post("https://peepo-app-server.herokuapp.com/api/historial", { email })
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/historial`, { email })
       .then((response) => setTable(response.data));
   }, []);
   return (

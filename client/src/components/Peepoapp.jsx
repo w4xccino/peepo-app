@@ -6,7 +6,7 @@ import Navbar from "./templates/Navbar.jsx";
 function Peepoapp() {
   const [producto, setProduct] = useState([]);
   useEffect(() => {
-    fetch("https://peepo-app-server.herokuapp.com/api/productos")
+    fetch(`${process.env.REACT_APP_SERVER_URL}/api/productos`)
       .then((response) => response.json())
       .then((json) => setProduct(json));
   }, []);
@@ -14,7 +14,7 @@ function Peepoapp() {
   //Consumiendo la api de categoria
   const [categoriaa, setCategoria] = useState([]);
   useEffect(() => {
-    fetch("https://peepo-app-server.herokuapp.com/api/categorias")
+    fetch(`${process.env.REACT_APP_SERVER_URL}/api/categorias`)
       .then((response) => response.json())
       .then((json) => setCategoria(json));
   }, []);

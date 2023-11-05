@@ -17,7 +17,7 @@ function Register() {
   password.current = watch("password", "");
 
   // API del server
-  const url = "https://peepo-app-server.herokuapp.com/api/register";
+  const url = `${process.env.REACT_APP_SERVER_URL}/api/register`;
   const action = (body) => {
     axios.post(url, body).then((res) => {
       if (res.data == 1) {

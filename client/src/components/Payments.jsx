@@ -7,7 +7,7 @@ function Payments(props) {
   const { product_id } = useParams();
   const [producto, setProducto] = useState([]);
   useEffect(() => {
-    fetch(`https://peepo-app-server.herokuapp.com/api/producto/${product_id}`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}/api/producto/${product_id}`)
       .then((data) => data.json())
       .then((json) => {
         setProducto(json);
@@ -18,7 +18,7 @@ function Payments(props) {
     let user_id = localStorage.getItem("user_id");
     let precio = producto[0].precio;
     axios
-      .post("https://peepo-app-server.herokuapp.com/api/pagos", { product_id, user_id, precio })
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/pagos`, { product_id, user_id, precio })
       .then((res) => {
         if (res.data === 1) {
           swal({

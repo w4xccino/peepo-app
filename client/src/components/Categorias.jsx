@@ -7,15 +7,17 @@ function Categorias() {
   const [categoria, setCategoria] = useState([]);
 
   useEffect(() => {
-    fetch("https://peepo-app-server.herokuapp.com/api/categorias")
+    fetch(`${process.env.REACT_APP_SERVER_URL}/api/categorias`)
       .then((response) => response.json())
       .then((json) => setCategoria(json));
   }, []);
 
   let list = [];
+
   categoria.map((item, idx) => {
     return list.push(item.nombre_categoria);
   });
+
   return (
     <div>
       <Navbar />

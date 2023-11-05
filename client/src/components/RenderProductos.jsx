@@ -5,7 +5,7 @@ function RenderProductos({ number }) {
   const cookies = new Cookies();
   const [producto, setProduct] = useState([]);
   useEffect(() => {
-    fetch("https://peepo-app-server.herokuapp.com/api/productos")
+    fetch(`${process.env.REACT_APP_SERVER_URL}/api/productos`)
       .then((response) => response.json())
       .then((json) => setProduct(json));
   }, []);
